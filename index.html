@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"  xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->    
+    <meta charset='UTF-8'>
+    <title>Chromantics: </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Dedesign the Web is a quick and fun game where you guess a website by looking at its wireframe.">
+    <meta name="author" content="DESIGNATION Labs">
+    <meta name="language" content="ES">
+    <meta name="application-name" content="Dedesign the Web is a quick and fun game where you guess a website by looking at its wireframe.">
+    <meta name="copyright" content="Dedesign the Web is a quick and fun game where you guess a website by looking at its wireframe.">
+    <meta name="url" content="http://dedesigntheweb.com">
+    <meta name="keywords" content="DESIGNATION, thedesignation,designation IO, designationIO, designation,the designation,Design,UX,User Experience,UI,Visual Design,Branding,Graphic Design,Digital Design,Front-end Development,Front-end Web Development,Frontend,Frontend Dev,Development,HTML,CSS,JavaScript,jQuery,Design school,School,Class,Design class,Digital design school,digital design,tech school,tech class, tech education, interaction design, Digital design class,technology,entrepreneurship,user interface,learn photoshop, learn web design, learn digital design,learn illustrator,learn adobe,designing interactions,layout design,typography,mobile design,responsive design">
+
+    <!--Open graph-->
+    <meta name="og:title" content="Dedesign the Web" />
+    <meta name="og:type" content="website" />
+    <meta name="og:url" content="http://dedesigntheweb.com" />
+    <meta name="og:image" content="http://dedesigntheweb.com/images/04_twitter_w.png" />
+    <meta name="og:site_name" content="Dedesign the Web"/>
+    <meta name="fb:page_id" content="388435334586956" />
+    <meta name="og:email" content="team@designation.io"/>
+    <meta name="og:region" content="IL"/>
+    <meta name="og:country-name" content="USA"/>
+    <meta name="og:description" content="Dedesign the Web is a quick and fun game where you guess a website by looking at its wireframe.">
+
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="Dedesign the Web">
+    <meta name="twitter:url" content="http://designation.io">
+    <meta name="twitter:title" content="Dedesign the Web">
+    <meta name="twitter:description" content="Dedesign the Web is a quick and fun game where you guess a website by looking at its wireframe.">
+    <meta name="twitter:image" content="http://dedesigntheweb.com/images/04_twitter_w.png">
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="images/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="images/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="images/mstile-144x144.png">
+    <meta name="msapplication-square70x70logo" content="images/mstile-70x70.png">
+    <meta name="msapplication-square144x144logo" content="images/mstile-144x144.png">
+    <meta name="msapplication-square150x150logo" content="images/mstile-150x150.png">
+    <meta name="msapplication-square310x310logo" content="images/mstile-310x310.png">
+    <meta name="msapplication-wide310x150logo" content="images/mstile-310x150.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- typekit -->
+    <script src="//use.typekit.net/tla0jox.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <!-- SNAP -->
+    <script src="js/snap.svg-min.js"></script>
+
+    <!-- MAILCHIMP GOAL TRACKING -->
+
+</head>
+
+    <body>
+        <header>
+            <div class="container">
+                <div class="title">
+                    <h1>Chromantics:</h1>
+                    <p>The meaning of color</p>
+                </div>
+                <div class="question-counter">
+                    <h3>Question</h3>
+                    <h2><span id="question-count"></span>/10</h2>
+                </div>
+            </div>
+        </header>
+        <div class="main container">
+            <div class="question">
+                <p id="question-copy"></p>
+            </div>
+            <div class="swatches">
+<!--                 <div class="hex-labels">
+                    <span class="hex"></span>
+                    <span class="hex"></span>
+                    <span class="hex"></span>
+                    <span class="hex"></span>
+                </div> -->
+                <div class="box swatch-one box--collapser">
+                    <span class="morph-shape morph-shape--color-1" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z;M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23 c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z">
+                    <span class="hex"></span>
+                        <svg width="100%" height="100%" viewBox="27 27 246 246" preserveAspectRatio="none" fill="#F6302B">
+                            <path class="submit" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0 c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="box swatch-two box--collapser">
+                    <span class="morph-shape morph-shape--color-1" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z;M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23 c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z">
+                    <span class="hex"></span>
+                        <svg width="100%" height="100%" viewBox="27 27 246 246" preserveAspectRatio="none" fill="#8F52A2">
+                            <path class="submit" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0 c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="box swatch-three box--collapser">
+                    <span class="morph-shape morph-shape--color-1" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z;M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23 c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z">
+                    <span class="hex"></span>
+                        <svg width="100%" height="100%" viewBox="27 27 246 246" preserveAspectRatio="none" fill="#0000FF">
+                            <path class="submit" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0 c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="box swatch-four box--expander">
+                    <span class="morph-shape morph-shape--color-4" data-morph-open="M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23
+c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z" data-morph-close="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                    <span class="hex"></span>
+                        <svg width="100%" height="100%" viewBox="27 27 246 246" preserveAspectRatio="none" fill="#AFD31E">
+                            <path class="submit" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="colophon">
+                    <h3>Made By</h3>
+                    <img src="img/logo_white(585x80).png" alt="DESIGNATION">
+                </div>
+<!--                 <div class="social">
+                    <div class="addthis_sharing_toolbox"></div>
+                </div> -->
+            </div>
+        </footer>
+
+        <!-- START SCRIPTS -->
+<!-- /*        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552301f333ff0ccf" async="async"></script>*/ -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="js/classie.js"></script>
+        <script src="js/svgEffects.js"></script>
+
+        <script src="js/app.js"></script>
+
+    </body>
+
+</html>

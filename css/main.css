@@ -1,0 +1,217 @@
+/* ================================================================================
+  #Box-sizing
+================================================================================ */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* ================================================================================
+  #Typography
+================================================================================ */
+body {
+  font-family: "futura-pt", sans-serif;
+  color: #fff;
+  background-color: #1A1A1A; }
+
+h1, h2, h3, p {
+  margin: 0; }
+
+h1 {
+  font-size: 5vh; }
+
+h2 {
+  font-size: 4vh; }
+
+h3 {
+  font-size: 1em; }
+
+p {
+  font-size: 2vh; }
+
+/* ================================================================================
+  #Grid
+================================================================================ */
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto; }
+
+/* ================================================================================
+  #Header
+================================================================================ */
+header {
+  width: 100%;
+  height: 10vh;
+  background-color: #484848;
+  border-bottom: 4px solid #353535; }
+  header .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  header .question-counter {
+    background-color: #808080;
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 4px solid #686868; }
+    header .question-counter h2, header .question-counter h3 {
+      margin: 0; }
+
+/* ================================================================================
+  #Main
+================================================================================ */
+.main {
+  height: 80vh;
+  position: relative;
+  background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
+  background-size: cover; }
+
+.question {
+  width: 100%;
+  height: 20vh;
+  background: rgba(0, 0, 0, 0.8); }
+  .question p {
+    margin: auto 0; }
+
+/* ================================================================================
+  #Swatches
+================================================================================ */
+.swatches {
+  height: 60vh;
+  position: relative;
+  bottom: 0; }
+
+.swatch-two {
+  left: 25%; }
+
+.swatch-three {
+  left: 50%; }
+
+.swatch-four {
+  left: 75%; }
+
+.hex {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10%;
+  font-size: 3vh; }
+
+/* ================================================================================
+  #Elastic SVGs
+================================================================================ */
+/* .box-container {
+  max-width: 840px;
+  min-height: 335px;
+  margin: 0 auto;
+  clear: both;
+}
+
+.box-container h2 {
+  text-align: left;
+  padding: 0 1.5em;
+  margin: 0;
+  color: #afb3b8;
+}
+
+.box-container--large {
+  min-height: 400px;
+} */
+.box {
+  width: 25%;
+  height: 30%;
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  transition: height .2s ease-in-out; }
+  .box:hover {
+    height: 35%; }
+
+.box--collapser {
+  -webkit-transition: -webkit-transform 0.15s, opacity 0.15s;
+  transition: transform 0.15s, opacity 0.15s, height .2s ease-in-out; }
+
+/* .box--expander {
+  width: 25%;
+  min-width: 260px;
+  height: 260px;
+  float: none;
+  margin: 0 auto;
+  -webkit-transition: width 0.2s, height 0.2s;
+  transition: width 0.2s, height 0.2s;
+} */
+.box--collapser.box--close {
+  opacity: 0;
+  -webkit-transform: scale3d(0, 0, 1);
+  transform: scale3d(0, 0, 1); }
+
+.box--expander.box--sizeup {
+  width: 100%;
+  left: 0;
+  height: 60%; }
+
+/* .trigger {
+  background: none;
+  color: #F5F5F5;
+  border: none;
+  width: 30px;
+  height: 30px;
+  line-height: 25px;
+  position: absolute;
+  right: 10%;
+  top: 10.5%;
+  outline: none;
+  padding: 0;
+  margin: 0;
+} */
+/* .trigger .fa-compress,
+.box--sizeup .trigger .fa-expand {
+  display: none;
+}
+
+.box--sizeup .trigger .fa-compress {
+  display: inline-block;
+} */
+.morph-shape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out; }
+
+/* ================================================================================
+  #Footer
+================================================================================ */
+footer {
+  width: 100%;
+  height: 10vh;
+  background-color: #484848; }
+  footer .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    footer .container .colophon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%; }
+      footer .container .colophon h3 {
+        margin: 0; }
+      footer .container .colophon img {
+        display: inline;
+        height: 50%;
+        width: auto; }
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 500px) {
+  .container {
+    width: 100%; } }
