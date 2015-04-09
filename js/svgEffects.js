@@ -63,19 +63,19 @@
   SVGExpander.prototype.toggle = function() {
     var self = this;
 
-    if( this.isOpen ) {
+/*    if( this.isOpen ) {
       this.pathEl.stop().animate( { 'path' : this.paths.close }, 250, mina.easeout, function() {
         self.pathEl.stop().animate( { 'path' : self.paths.reset }, 800, mina.elastic );
       } );
       setTimeout( function() { classie.remove( self.el, 'box--sizeup' ); }, 250 );
     }
-    else {
+    else {*/
       this.pathEl.stop().animate( { 'path' : this.paths.open }, 250, mina.easeout, function() {
         self.pathEl.stop().animate( { 'path' : self.paths.reset }, 800, mina.elastic );
       } );
       setTimeout( function() { classie.add( self.el, 'box--sizeup' ); }, 250 );
-    }
-    this.isOpen = !this.isOpen;
+/*    }
+    this.isOpen = !this.isOpen;*/
   };
         
   [].slice.call( document.querySelectorAll( '.box--collapser' ) ).forEach( function( el ) { new SVGCollapser(el); } );
