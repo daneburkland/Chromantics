@@ -6,10 +6,12 @@
     this.questionCount = $("#question-count");
     this.questionCopy = $("#question-copy");
     this.hexLabels = $(".hex");
+    this.swatches = $(".box");
+    this.correctSwatch = $("#expander");
 
     // question data.
     this.appData = [
-      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", source:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, wrongAnswer:[]},
+      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", source:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#F6302B", "#F6302B", "#F6302B"], answerIndex:3, wrongAnswer:[]},
       {name:"Date", imgs:[], question:"You are going on a date and want to look your best. What color should you wear?", quote:"Studies find both men and women find the other sex more attractive when wearing red.", source:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, wrongAnswer:[]},
       {name:"Drug", imgs:[], question:"You’re marketing a new alertness drug. What color should you make the pills?", quote:"Studies find orange-colored placebo stimulants are 47% more effective. Similarly, tranquilizers are more effective when either blue or green.", source:"http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2359128/", swatchFills:[], answerIndex:2, wrongAnswer:[]},
       {name:"Toy", imgs:[], question:"You’re designing a toy for toddlers. Which of the following colors should you make it? ", quote:"Children are naturally attracted to bright colors because rods are more developed at birth than cones. That means babies see bright colors more easily.", source:"http://news.bbc.co.uk/2/hi/health/4474725.stm", swatchFills:[], answerIndex:2, wrongAnswer:[]},
@@ -21,6 +23,7 @@
       {name:"date", imgs:[], question:"", quote:"", source:"", swatchFills:[], answerIndex:2, wrongAnswer:[]},
     ]
 
+
     // go to next question
 /*    this.nextQuestion = function(){
       var newIndex = this.currentIndex + 1;
@@ -31,20 +34,49 @@
         this.showGuessForm();
       }
     };*/
+    // set correct swatch
+    this.resetSwatches = function(index) {
+      var correctSwatchIndex = this.appData[index].answerIndex;
+      var swatchFillArray = this.appData[index].swatchFills;
+      this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex]);
+      if ( correctSwatchIndex === 0 ) this.correctSwatch.css("left", "0");
+      // reposition the swatches
+      this.swatches = $(".box");
+      $(this.swatches[1]).css("left", "25%");
+      $(this.swatches[2]).css("left", "50%");
+      $(this.swatches[3]).css("left", "75%");
+      // change the fills
+      $(this.swatches).each(function(el) {
+        $(this).find("svg").css( {fill: swatchFillArray[el]} );
+      })
+    
+    }
+
     // show the question
     this.showQuestion = function(index){      
+      var outerThis = this;
       if(index < 0 || index > this.appData.length-1) return;
       this.currentIndex = index;
       this.wrongAnswersCount[this.currentIndex] = 0;
-/*      $("#img_container").html( "<img src='./images/"+this.appData[this.currentIndex].imgs[0]+"' />");*/
+      // reorder the swatches
+      this.resetSwatches(this.currentIndex);
       // show the pagination
       this.questionCount.html( this.currentIndex+1 );
       // show the question
       this.questionCopy.html(this.appData[this.currentIndex].question);
+      // set the collapse/expand classes
+/*      this.swatches.each(function(el) {
+        if (el === outerThis.appData[outerThis.currentIndex].answerIndex) {
+          $(this).addClass("box--expander");
+        }
+        else {
+         $(this).addClass("box--collapser");
+        }
+      });*/
+      /*var elastic = new ELASTICSVG();*/
+
       // show the hex values
-      var outerThis = this;
       this.hexLabels.each(function(el) {
-        console.log(this);
         $(this).text(outerThis.appData[outerThis.currentIndex].swatchFills[el]);
       });
       // clear the feedback
@@ -59,10 +91,9 @@
       this.showNextButton();
     };*/
     // submit user answer.
-/*    this.submitAnswer = function(answer) {
-      var answer = answer.toLowerCase();
+    this.submitAnswer = function(answer) {
       var correct = false;
-      var acceptables = this.appData[this.currentIndex].acceptable;
+      var answer = this.appData[this.currentIndex].answerIndex;
       var n = acceptables.length;
       for(var i=0; i<n; i++) if(answer == acceptables[i]) correct=true;     
       if(correct){
@@ -74,7 +105,7 @@
         if( this.wrongAnswersCount[this.currentIndex] > 1 ) msg =  "<h2>Wrong answer!</h2> <br/>"+this.getRandomBanter();
         this.showFeedbackAlert( msg );
       }
-    };*/
+    };
     // show the next button, hide the form submission
 /*    this.showNextButton = function(){
       if(this.currentIndex == this.appData.length-1){
@@ -99,6 +130,7 @@
   };
   
   $(document).ready(function(){
+
     var colorApp = new App();
     colorApp.showQuestion(0);
     // submit form function 

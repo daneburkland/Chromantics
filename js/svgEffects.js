@@ -30,7 +30,6 @@
         self.pathEl.stop().animate( { 'path' : self.paths.active[pos] }, pos === 0 ? 200 : 150, pos === 0 ? mina.easeinout : mina.easeout, function() { nextStep(pos); } );
         pos++;
       };
-
     nextStep(pos);
 
     setTimeout( function() { classie.add( self.el, 'box--close' ); }, 350 );
@@ -78,7 +77,12 @@
     }
     this.isOpen = !this.isOpen;
   };
-
+        
   [].slice.call( document.querySelectorAll( '.box--collapser' ) ).forEach( function( el ) { new SVGCollapser(el); } );
   [].slice.call( document.querySelectorAll( '.box--expander' ) ).forEach( function( el ) { new SVGExpander(el); } );
 })(); 
+
+
+
+
+  
