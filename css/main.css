@@ -137,15 +137,9 @@ header {
   -webkit-transition: -webkit-transform 0.15s, opacity 0.15s;
   transition: transform 0.15s, opacity 0.15s, height .2s ease-in-out; }
 
-/* .box--expander {
-  width: 25%;
-  min-width: 260px;
-  height: 260px;
-  float: none;
-  margin: 0 auto;
-  -webkit-transition: width 0.2s, height 0.2s;
-  transition: width 0.2s, height 0.2s;
-} */
+.box--expander {
+  z-index: 10000; }
+
 .box--collapser.box--close {
   opacity: 0;
   -webkit-transform: scale3d(0, 0, 1);
@@ -153,7 +147,7 @@ header {
 
 .box--expander.box--sizeup {
   width: 100%;
-  left: 0;
+  left: 0 !important;
   height: 60%; }
 
 /* .trigger {
