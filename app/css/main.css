@@ -204,6 +204,29 @@ header {
   transition: transform 0.1s ease-in-out; }
 
 /* ================================================================================
+  #Table
+================================================================================ */
+table {
+  color: #484848;
+  font-size: 3vh;
+  width: 70%;
+  height: 80%;
+  margin: 0 auto; }
+  table tr {
+    border-bottom: 1px solid #484848; }
+    table tr:first-child {
+      border-bottom: 3px solid #000; }
+    table tr th:first-child {
+      text-align: left; }
+    table tr th:nth-child(2) {
+      width: 10%; }
+    table tr .question-score {
+      text-align: center;
+      color: #fff; }
+    table tr span {
+      color: #808080; }
+
+/* ================================================================================
   #Footer
 ================================================================================ */
 footer {

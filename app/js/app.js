@@ -14,6 +14,8 @@
     this.answerMessage = $("#answer-message");
     this.answerSource = $("#source");
     this.randomIncorrect = $("#wrong");
+    this.questionNames = $(".question-name");
+    this.questionScores = $(".question-score");
     var outerThis = this;
     //set the initial swatch order for later reordering
     this.swatches.each(function(el) {
@@ -31,8 +33,8 @@
       {name:"Restaurant", imgs:[], question:"You’re the general manager of a hip new restaurant. Your investors say you can design the interior however you want, as long as you don’t paint the walls one particular color. Which color?", quote:"Nature has very few naturally blue foods. As such, humans don’t associate the color with hunger. For greater sales, paint your walls green or other natural earth tones.", answerSource:"http://personal.stevens.edu/~rchen/creativity/impact%20of%20color%20on%20marketing.pdf", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
       {name:"Hospital walls", imgs:[], question:"Your hospital walls need to be repainted. What color should you choose?", quote:"Research suggests people in green rooms or rooms with lots of plants experience less stress and can tolerate more physical pain than a control group.", answerSource:"http://public.wsu.edu/~lohr/hih/pain/", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
       {name:"Financial guru", imgs:[], question:"You’re a well respected financial guru, and are about to launch a new 3am money management program on basic color. What color tie should you wear? ", quote:"Purple is historically associated with royalty because of the historical cost and rarity of the plants that produced the dye. In modern times, purple is still associated with luxury and financial success.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
-      {name:"date", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
-      {name:"date", imgs:[], question:"", quote:"", answerSource:"", swatchFills:[], answerIndex:2, score:4},
+      {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
+      {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
     ]
 
     // random success messages for correct answers
@@ -52,8 +54,22 @@
 
     // show end screen
     this.showEndScreen = function() {
-
+      // hide the unneccessary elements
+      this.questionContainers.hide();
+      $(".swatches").hide();
+      // create question data variable
+      var questionData = outerThis.appData;
+      // set the background to white
+      $(".main").css( {"background": "#fff"});
+      this.questionNames.each(function(el) {
+        $(this).html(el+1 + ".<span> " + questionData[el].name + "</span>");
+      })
+      this.questionScores.each(function(el) {
+        $(this).html(questionData[el].score);
+        $(this).css( {background: questionData[el].swatchFills[questionData[el].answerIndex]} );
+      })
     }
+    this.showEndScreen();
 
 
 

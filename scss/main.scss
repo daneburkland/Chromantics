@@ -214,6 +214,35 @@ header {
 }
 
 /* ================================================================================
+  #Table
+================================================================================ */
+table {
+  color: #484848;
+  font-size: 3vh;
+  width: 70%;
+  height: 80%;
+  margin: 0 auto;
+  tr {
+    border-bottom: 1px solid #484848;
+    &:first-child {
+      border-bottom: 3px solid #000;
+    }
+    th:first-child {
+      text-align: left;
+    }
+    th:nth-child(2) { 
+      width: 10%;
+    }
+    .question-score {
+      text-align: center;
+      color: #fff;
+    }
+    span { color: #808080; }
+  }
+}
+
+
+/* ================================================================================
   #Footer
 ================================================================================ */
 footer {
@@ -241,7 +270,6 @@ footer {
     }
   }
 }
-
 
 /* Smartphones (portrait) ----------- */
 @media only screen 
