@@ -27,17 +27,20 @@ h2 {
   font-size: 4vh; }
 
 h3 {
-  font-size: 1em; }
+  font-size: 2.5vh; }
 
 p {
-  font-size: 2vh; }
+  font-size: 3vh; }
+
+h1, h3 {
+  display: inline-block; }
 
 /* ================================================================================
   #Grid
 ================================================================================ */
 .container {
   width: 80%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto; }
 
 /* ================================================================================
@@ -64,30 +67,67 @@ header {
     border-bottom: 4px solid #686868; }
     header .question-counter h2, header .question-counter h3 {
       margin: 0; }
+    header .question-counter h2 {
+      letter-spacing: 2px; }
+  header .title h3 {
+    font-style: italic; }
+  header .title h1 {
+    margin-right: 10px; }
 
 /* ================================================================================
   #Main
 ================================================================================ */
+.mask {
+  width: 100%;
+  height: 25%;
+  z-index: 10;
+  position: absolute;
+  overflow: hidden; }
+  .mask .blurred-background {
+    position: relative;
+    height: 80vh;
+    background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    z-index: 1; }
+
 .main {
   height: 80vh;
   position: relative;
   background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
   background-size: cover; }
+  .main .question {
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    z-index: 999999;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 3% 5%; }
+    .main .question p {
+      margin: 10px 0; }
+    .main .question .source {
+      font-size: 2vh;
+      color: white;
+      font-style: italic; }
+    .main .question .wrong {
+      position: absolute;
+      bottom: 0;
+      font-weight: 700;
+      font-size: 4vh; }
 
-.question {
-  width: 100%;
-  height: 20vh;
-  background: rgba(0, 0, 0, 0.8); }
-  .question p {
-    margin: auto 0; }
+.expanded-message {
+  height: 40% !important; }
+
+.question-container {
+  transition: all .2s ease-out; }
 
 /* ================================================================================
   #Swatches
 ================================================================================ */
 .swatches {
-  height: 60vh;
+  height: 80%;
   position: relative;
-  bottom: 0; }
+  top: 20%; }
   .swatches .continue {
     top: 150%;
     width: 50%;
@@ -96,13 +136,17 @@ header {
     left: 50%;
     transform: translateX(-50%);
     border: 3px solid white;
-    transition: top .5s ease-out; }
+    transition: top .2s ease-out;
+    transition-delay: .2s; }
     .swatches .continue p {
       position: absolute;
       font-size: 4vh;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%); }
+
+.continue-button-visible {
+  top: 30% !important; }
 
 .swatch-two {
   left: 25%; }
@@ -123,23 +167,6 @@ header {
 /* ================================================================================
   #Elastic SVGs
 ================================================================================ */
-/* .box-container {
-  max-width: 840px;
-  min-height: 335px;
-  margin: 0 auto;
-  clear: both;
-}
-
-.box-container h2 {
-  text-align: left;
-  padding: 0 1.5em;
-  margin: 0;
-  color: #afb3b8;
-}
-
-.box-container--large {
-  min-height: 400px;
-} */
 .box {
   width: 25%;
   height: 30%;
@@ -167,28 +194,6 @@ header {
   left: 0 !important;
   height: 45%; }
 
-/* .trigger {
-  background: none;
-  color: #F5F5F5;
-  border: none;
-  width: 30px;
-  height: 30px;
-  line-height: 25px;
-  position: absolute;
-  right: 10%;
-  top: 10.5%;
-  outline: none;
-  padding: 0;
-  margin: 0;
-} */
-/* .trigger .fa-compress,
-.box--sizeup .trigger .fa-expand {
-  display: none;
-}
-
-.box--sizeup .trigger .fa-compress {
-  display: inline-block;
-} */
 .morph-shape {
   position: absolute;
   width: 100%;
@@ -204,7 +209,9 @@ header {
 footer {
   width: 100%;
   height: 10vh;
-  background-color: #484848; }
+  background-color: #484848;
+  position: absolute;
+  z-index: 99999; }
   footer .container {
     height: 100%;
     display: flex;
@@ -223,6 +230,10 @@ footer {
         width: auto; }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
   .container {
-    width: 100%; } }
+    width: 100%; }
+  header, footer {
+    padding-left: 5px; }
+  .question-counter {
+    padding-right: 5px; } }

@@ -5,10 +5,15 @@
     this.wrongAnswersCount = new Array;
     this.questionCount = $("#question-count");
     this.questionCopy = $("#question-copy");
+    this.randomSuccess = $("#success-message");
     this.hexLabels = $(".hex");
     this.swatches = $(".box");
     this.correctSwatch = $("#expander");
     this.continueButton = $("#continue");
+    this.questionContainers = $(".question-container");
+    this.answerMessage = $("#answer-message");
+    this.answerSource = $("#source");
+    this.randomIncorrect = $("#wrong");
     var outerThis = this;
     //set the initial swatch order for later reordering
     this.swatches.each(function(el) {
@@ -18,24 +23,48 @@
 
     // question data.
     this.appData = [
-      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", source:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
-      {name:"Date", imgs:[], question:"You are going on a date and want to look your best. What color should you wear?", quote:"Studies find both men and women find the other sex more attractive when wearing red.", source:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
-      {name:"Drug", imgs:[], question:"You’re marketing a new alertness drug. What color should you make the pills?", quote:"Studies find orange-colored placebo stimulants are 47% more effective. Similarly, tranquilizers are more effective when either blue or green.", source:"http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2359128/", swatchFills:[], answerIndex:2, score:4},
-      {name:"Toy", imgs:[], question:"You’re designing a toy for toddlers. Which of the following colors should you make it? ", quote:"Children are naturally attracted to bright colors because rods are more developed at birth than cones. That means babies see bright colors more easily.", source:"http://news.bbc.co.uk/2/hi/health/4474725.stm", swatchFills:[], answerIndex:3, score:4},
-      {name:"Cardiac rehab", imgs:[], question:"You’re the lead physician at a new cardiac rehab facility. You arrive for your first day of work, and immediately insist the walls be repainted. What color are they?", quote:"Studies show blood pressure and heart rates are consistently XX% higher in red rooms.", source:"", swatchFills:[], answerIndex:2, score:4},
-      {name:"Restaurant", imgs:[], question:"You’re the general manager of a hip new restaurant. Your investors say you can design the interior however you want, as long as you don’t paint the walls one particular color. Which color?", quote:"Nature has very few naturally blue foods. As such, humans don’t associate the color with hunger. For greater sales, paint your walls green or other natural earth tones.", source:"http://personal.stevens.edu/~rchen/creativity/impact%20of%20color%20on%20marketing.pdf", swatchFills:[], answerIndex:2, score:4},
-      {name:"Hospital walls", imgs:[], question:"Your hospital walls need to be repainted. What color should you choose?", quote:"Research suggests people in green rooms or rooms with lots of plants experience less stress and can tolerate more physical pain than a control group.", source:"http://public.wsu.edu/~lohr/hih/pain/", swatchFills:[], answerIndex:2, score:4},
-      {name:"Financial guru", imgs:[], question:"You’re a well respected financial guru, and are about to launch a new 3am money management program on basic color. What color tie should you wear? ", quote:"Purple is historically associated with royalty because of the historical cost and rarity of the plants that produced the dye. In modern times, purple is still associated with luxury and financial success.", source:"", swatchFills:[], answerIndex:2, score:4},
-      {name:"date", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", source:"", swatchFills:[], answerIndex:2, score:4},
-      {name:"date", imgs:[], question:"", quote:"", source:"", swatchFills:[], answerIndex:2, score:4},
+      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", answerSource:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
+      {name:"Date", imgs:[], question:"You are going on a date and want to look your best. What color should you wear?", quote:"Studies find both men and women find the other sex more attractive when wearing red.", answerSource:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
+      {name:"Drug", imgs:[], question:"You’re marketing a new alertness drug. What color should you make the pills?", quote:"Studies find orange-colored placebo stimulants are 47% more effective. Similarly, tranquilizers are more effective when either blue or green.", answerSource:"http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2359128/", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
+      {name:"Toy", imgs:[], question:"You’re designing a toy for toddlers. Which of the following colors should you make it? ", quote:"Children are naturally attracted to bright colors because rods are more developed at birth than cones. That means babies see bright colors more easily.", answerSource:"http://news.bbc.co.uk/2/hi/health/4474725.stm", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
+      {name:"Cardiac rehab", imgs:[], question:"You’re the lead physician at a new cardiac rehab facility. You arrive for your first day of work, and immediately insist the walls be repainted. What color are they?", quote:"Studies show blood pressure and heart rates are consistently XX% higher in red rooms.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
+      {name:"Restaurant", imgs:[], question:"You’re the general manager of a hip new restaurant. Your investors say you can design the interior however you want, as long as you don’t paint the walls one particular color. Which color?", quote:"Nature has very few naturally blue foods. As such, humans don’t associate the color with hunger. For greater sales, paint your walls green or other natural earth tones.", answerSource:"http://personal.stevens.edu/~rchen/creativity/impact%20of%20color%20on%20marketing.pdf", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
+      {name:"Hospital walls", imgs:[], question:"Your hospital walls need to be repainted. What color should you choose?", quote:"Research suggests people in green rooms or rooms with lots of plants experience less stress and can tolerate more physical pain than a control group.", answerSource:"http://public.wsu.edu/~lohr/hih/pain/", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
+      {name:"Financial guru", imgs:[], question:"You’re a well respected financial guru, and are about to launch a new 3am money management program on basic color. What color tie should you wear? ", quote:"Purple is historically associated with royalty because of the historical cost and rarity of the plants that produced the dye. In modern times, purple is still associated with luxury and financial success.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
+      {name:"date", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
+      {name:"date", imgs:[], question:"", quote:"", answerSource:"", swatchFills:[], answerIndex:2, score:4},
     ]
+
+    // random success messages for correct answers
+    this.getRandomSuccess = function(){
+      var s = [
+        "Nice!", "Corrrrect!", "Yup!", "That's what we were thinking!", "Nailed it!", "Mmmhmmm!"
+      ];
+      return s[ Math.round(Math.random()*(s.length-1)) ];
+    };
+    // random incorrect note
+    this.getRandomIncorrect = function(){
+      var i = [
+        "Oof!", "Try Again", "Give it another shot!", "This color? For that?!"
+      ];
+      return i[ Math.round(Math.random()*(i.length-1)) ];
+    };
+
+    // show end screen
+    this.showEndScreen = function() {
+
+    }
+
 
 
     // go to next question
     this.nextQuestion = function(){
       var newIndex = this.currentIndex + 1;
-      $("#continue").css( {display: "none", top: "150%"} );
-      $("#continue").css( {display: "inline-block"} );
+      this.continueButton.hide().delay(5).queue(function(next) {
+        $(this).show();
+        next();
+      });
+      this.continueButton.removeClass('continue-button-visible');
       if(newIndex > this.appData.length-1){
         this.showEndScreen();
       }else{
@@ -46,7 +75,15 @@
     this.resetSwatches = function(index) {
       var correctSwatchIndex = this.appData[index].answerIndex;
       var swatchFillArray = this.appData[index].swatchFills;
-
+      // hide the answer messages
+      this.questionCopy.show();
+      this.randomSuccess.hide();
+      this.answerMessage.hide();
+      this.answerSource.hide();
+      // resize the question containers
+      this.questionContainers.each(function(el) {
+        $(this).removeClass('expanded-message');
+      })
       // size down the expanded swatch
       this.correctSwatch.removeClass("box--sizeup");
       // expand the collapsed swatches
@@ -55,13 +92,15 @@
         $(this).find("path").attr( {d: "M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0 c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z"});
       });
       // position the expanding swatch
-      if (correctSwatchIndex == 0) {
-        this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex]);
-      } else if (correctSwatchIndex == 3) {
+      if (correctSwatchIndex == 3) {
         this.correctSwatch.insertAfter(this.swatches[correctSwatchIndex]);
+        console.log('placing 3');
+      } else if (correctSwatchIndex == 2){
+        this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex + 1]);
+        console.log('placing 2');
       } else {
-        this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex+1]);
-        console.log(this.swatches[4]);
+        this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex]);
+        console.log('placing 1');
       }
       // reorder and restyle the swatches
       this.swatches = $(".box");
@@ -75,13 +114,11 @@
       // set the continue button background color
       $("#continue").css( {"background-color": swatchFillArray[correctSwatchIndex]} );
       // hide the continue button
-      $("#continue").css( {top: "150%"});
-
+      /*$("#continue").css( {top: "150%"});*/
     }
 
     // show the question
     this.showQuestion = function(index){      
-      
       if(index < 0 || index > this.appData.length-1) return;
       this.currentIndex = index;
       /*this.wrongAnswersCount[this.currentIndex] = 0;*/
@@ -90,37 +127,39 @@
       this.questionCount.html( this.currentIndex+1 );
       // show the question
       this.questionCopy.html(this.appData[this.currentIndex].question);
-
-      // clear the feedback
-/*      $("#feedback").html("");
-      $("#feedback").css("display","none");
-      //
-      $("#website_name").val("");*/
+      this.questionCopy.show();
     };
     // advance to second screen of question
-    this.showCorrect = function(){
-      $("#continue").css( {top: "25%"} );
+    this.showCorrectScreen = function(){
+      this.continueButton.addClass('continue-button-visible');
+      this.questionContainers.each(function(el) {
+        $(this).addClass('expanded-message');
+      })
+      this.questionCopy.hide();
+      this.randomSuccess.html(this.getRandomSuccess());
+      this.randomSuccess.show();
+      this.answerMessage.html(this.appData[this.currentIndex].quote);
+      this.answerMessage.show();
+      this.answerSource.html(this.appData[this.currentIndex].answerSource);
+      this.answerSource.show();
     };
     // submit user answer.
     this.submitAnswer = function(guess) {
-      $("#continue").css( {display:"inline-block"} );
       var currentSwatchArray = $(".box");
       var guessIndex = currentSwatchArray.index(guess);
       var questionData = this.appData[this.currentIndex];
+      console.log(guessIndex);
+      console.log(questionData.answerIndex);
   
       if(guessIndex === questionData.answerIndex){
+        this.randomIncorrect.html("");
         console.log("correct");
-        this.showCorrect();
+        this.showCorrectScreen();
       }else{
         console.log("incorrect");
         questionData.score -= 1;
-        console.log(questionData.score);
-
-
-/*        this.wrongAnswersCount[this.currentIndex]++;
-        var msg = "<h2>Wrong answer!</h2> <br/>"+this.appData[this.currentIndex].quote;
-        if( this.wrongAnswersCount[this.currentIndex] > 1 ) msg =  "<h2>Wrong answer!</h2> <br/>"+this.getRandomBanter();*/
-        /*this.showFeedbackAlert( msg );*/
+        this.randomIncorrect.css( {color: questionData.swatchFills[guessIndex]} );
+        this.randomIncorrect.html(this.getRandomIncorrect());
       }
     };
   };
