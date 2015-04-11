@@ -22,8 +22,8 @@
 
     // question data.
     this.appData = [
-      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", answerSource:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
-      {name:"Date", imgs:[], question:"You are going on a date and want to look your best. What color should you wear?", quote:"Studies find both men and women find the other sex more attractive when wearing red.", answerSource:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
+      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", answerSource:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
+      {name:"Date", imgs:[], question:"You are going on a date and want to look your best. What color should you wear?", quote:"Studies find both men and women find the other sex more attractive when wearing red.", answerSource:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
       {name:"Drug", imgs:[], question:"You’re marketing a new alertness drug. What color should you make the pills?", quote:"Studies find orange-colored placebo stimulants are 47% more effective. Similarly, tranquilizers are more effective when either blue or green.", answerSource:"http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2359128/", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
       {name:"Toy", imgs:[], question:"You’re designing a toy for toddlers. Which of the following colors should you make it? ", quote:"Children are naturally attracted to bright colors because rods are more developed at birth than cones. That means babies see bright colors more easily.", answerSource:"http://news.bbc.co.uk/2/hi/health/4474725.stm", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
       {name:"Cardiac rehab", imgs:[], question:"You’re the lead physician at a new cardiac rehab facility. You arrive for your first day of work, and immediately insist the walls be repainted. What color are they?", quote:"Studies show blood pressure and heart rates are consistently XX% higher in red rooms.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
@@ -40,6 +40,7 @@
       this.questionContainers.each(function() {
         $(this).hide();
       });
+      $(".question-counter").hide();
       this.swatchPaths.each(function(el) {
         $(this).css( {stroke: outerThis.appData[0].swatchFills[el]} );
       })
@@ -54,6 +55,7 @@
         $(".question-container").each(function() {
           $(this).show();
         });
+        $(".question-counter").show();
         // hide the path strokes
         $(".swatch-path").each(function(el) {
           $(this).css( {"stroke-width": 0} );
@@ -123,7 +125,6 @@
         this.showQuestion(newIndex);
       }
     };
-
     // reorder and restyle the swatches
     this.resetSwatches = function(index) {
       var correctSwatchIndex = this.appData[index].answerIndex;
@@ -148,12 +149,12 @@
       if (correctSwatchIndex == 3) {
         this.correctSwatch.insertAfter(this.swatches[correctSwatchIndex]);
         console.log('placing 3');
-      } else if (correctSwatchIndex == 2){
-        this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex + 1]);
+      } else if (correctSwatchIndex == 0){
+        this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex]);
         console.log('placing 2');
       } else {
-        this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex]);
-        console.log('placing 1');
+        this.correctSwatch.insertBefore(this.swatches[correctSwatchIndex + 1]);
+        console.log('placing 0');
       }
       // reorder and restyle the swatches
       this.swatches = $(".box");
@@ -191,7 +192,7 @@
       this.randomSuccess.show();
       this.answerMessage.html(this.appData[this.currentIndex].quote);
       this.answerMessage.show();
-      this.answerSource.html(this.appData[this.currentIndex].answerSource);
+      this.answerSource.attr("href", this.appData[this.currentIndex].answerSource);
       this.answerSource.show();
     };
 
@@ -205,6 +206,7 @@
   
       if(guessIndex === questionData.answerIndex){
         this.randomIncorrect.html("");
+        this.randomSuccess.css( {color: questionData.swatchFills[guessIndex]} );
         console.log("correct");
         this.showCorrectScreen();
       }else{

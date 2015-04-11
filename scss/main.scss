@@ -22,8 +22,11 @@ h1, h2, h3, p { margin: 0; }
 h1 { font-size: 5vh;}
 h2 { font-size: 4vh;}
 h3 { font-size: 2.5vh;}
-p { font-size: 2.5vh;}
-h1, h3 { display: inline-block; }
+p { font-size: 2.9vh;}
+h1, h3 { 
+  display: inline-block; 
+  font-weight: 300;
+}
 
 
 /* ================================================================================
@@ -198,12 +201,12 @@ header {
   .swatch-path {
     fill: none;
     stroke: white;
-    stroke-width: 5px;
+    stroke-width: 8px;
   }
-  &.swatch-0 { top: 6vh; transform: rotate(-45deg) translateX(-50%) }
-  &.swatch-1 { top: 8vh; transform: rotate(-45deg) translateX(-50%) }
-  &.swatch-2 { top: 20vh; transform: rotate(45deg) translateX(-50%) }
-  &.swatch-3 { top: 22vh; transform: rotate(45deg) translateX(-50%) }
+  &.swatch-0 { bottom: 34vh; transform: rotate(-45deg) translateX(-50%) }
+  &.swatch-1 { bottom: 36vh; transform: rotate(-45deg) translateX(-50%) }
+  &.swatch-2 { bottom: 20vh; transform: rotate(45deg) translateX(-50%) }
+  &.swatch-3 { bottom: 22vh; transform: rotate(45deg) translateX(-50%) }
 }
 .box--collapser {
   -webkit-transition: -webkit-transform 0.15s, opacity 0.15s;
@@ -241,6 +244,7 @@ header {
 .total-score {
   color: #484848;
   text-align: center;
+  h2 { font-size: 6vh;}
 }
 .end-screen { display: none;}
 

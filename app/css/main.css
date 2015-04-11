@@ -30,10 +30,11 @@ h3 {
   font-size: 2.5vh; }
 
 p {
-  font-size: 2.5vh; }
+  font-size: 2.9vh; }
 
 h1, h3 {
-  display: inline-block; }
+  display: inline-block;
+  font-weight: 300; }
 
 /* ================================================================================
   #Grid
@@ -217,24 +218,24 @@ header {
   .box-splash .swatch-path {
     fill: none;
     stroke: white;
-    stroke-width: 5px; }
+    stroke-width: 8px; }
   .box-splash.swatch-0 {
-    top: 6vh;
+    bottom: 34vh;
     -webkit-transform: rotate(-45deg) translateX(-50%);
         -ms-transform: rotate(-45deg) translateX(-50%);
             transform: rotate(-45deg) translateX(-50%); }
   .box-splash.swatch-1 {
-    top: 8vh;
+    bottom: 36vh;
     -webkit-transform: rotate(-45deg) translateX(-50%);
         -ms-transform: rotate(-45deg) translateX(-50%);
             transform: rotate(-45deg) translateX(-50%); }
   .box-splash.swatch-2 {
-    top: 20vh;
+    bottom: 20vh;
     -webkit-transform: rotate(45deg) translateX(-50%);
         -ms-transform: rotate(45deg) translateX(-50%);
             transform: rotate(45deg) translateX(-50%); }
   .box-splash.swatch-3 {
-    top: 22vh;
+    bottom: 22vh;
     -webkit-transform: rotate(45deg) translateX(-50%);
         -ms-transform: rotate(45deg) translateX(-50%);
             transform: rotate(45deg) translateX(-50%); }
@@ -271,6 +272,8 @@ header {
 .total-score {
   color: #484848;
   text-align: center; }
+  .total-score h2 {
+    font-size: 6vh; }
 
 .end-screen {
   display: none; }
