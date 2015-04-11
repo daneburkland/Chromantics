@@ -16,12 +16,9 @@
     this.randomIncorrect = $("#wrong");
     this.questionNames = $(".question-name");
     this.questionScores = $(".question-score");
+    this.swatchPaths = $(".swatch-path");
+    this.startButton = $("#start-button");
     var outerThis = this;
-    //set the initial swatch order for later reordering
-    this.swatches.each(function(el) {
-      $(this).data("order", el);
-    });
-
 
     // question data.
     this.appData = [
@@ -36,6 +33,35 @@
       {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
       {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
     ]
+
+
+    // show splash screen
+    this.showSplashScreen = function() {
+      this.questionContainers.each(function() {
+        $(this).hide();
+      });
+      this.swatchPaths.each(function(el) {
+        $(this).css( {stroke: outerThis.appData[0].swatchFills[el]} );
+      })
+    };
+
+    this.hideSplashScreen = function() {
+      this.startButton.hide();
+      this.swatches.each(function() {
+        $(this).removeClass("box-splash");
+      }).delay(500).queue(function(next) {
+        $(".main").removeClass("main-splash");
+        $(".question-container").each(function() {
+          $(this).show();
+        });
+        // hide the path strokes
+        $(".swatch-path").each(function(el) {
+          $(this).css( {"stroke-width": 0} );
+        });
+        // hide the start button
+        next();
+      })
+    }
 
     // random success messages for correct answers
     this.getRandomSuccess = function(){
@@ -57,6 +83,13 @@
       // hide the unneccessary elements
       this.questionContainers.hide();
       $(".swatches").hide();
+      $(".question-counter h2").hide();
+      // show the end screen elements
+      $(".end-screen").each(function() {
+        $(this).show();
+      })
+      // Change 'Question' to 'Scorecard'
+      $(".question-counter h3").html('Scorecard');
       // create question data variable
       var questionData = outerThis.appData;
       // set the background to white
@@ -64,14 +97,17 @@
       this.questionNames.each(function(el) {
         $(this).html(el+1 + ".<span> " + questionData[el].name + "</span>");
       })
+      // create total score variable
+      var totalScore = 0;
       this.questionScores.each(function(el) {
+        // calculate total score
+        totalScore += questionData[el].score;
         $(this).html(questionData[el].score);
         $(this).css( {background: questionData[el].swatchFills[questionData[el].answerIndex]} );
       })
+      // show the total score
+      $("#score").html(totalScore);
     }
-    this.showEndScreen();
-
-
 
     // go to next question
     this.nextQuestion = function(){
@@ -87,6 +123,7 @@
         this.showQuestion(newIndex);
       }
     };
+
     // reorder and restyle the swatches
     this.resetSwatches = function(index) {
       var correctSwatchIndex = this.appData[index].answerIndex;
@@ -129,15 +166,12 @@
       });
       // set the continue button background color
       $("#continue").css( {"background-color": swatchFillArray[correctSwatchIndex]} );
-      // hide the continue button
-      /*$("#continue").css( {top: "150%"});*/
     }
 
     // show the question
     this.showQuestion = function(index){      
       if(index < 0 || index > this.appData.length-1) return;
       this.currentIndex = index;
-      /*this.wrongAnswersCount[this.currentIndex] = 0;*/
       this.resetSwatches(this.currentIndex);
       // show the pagination
       this.questionCount.html( this.currentIndex+1 );
@@ -145,6 +179,7 @@
       this.questionCopy.html(this.appData[this.currentIndex].question);
       this.questionCopy.show();
     };
+
     // advance to second screen of question
     this.showCorrectScreen = function(){
       this.continueButton.addClass('continue-button-visible');
@@ -159,6 +194,7 @@
       this.answerSource.html(this.appData[this.currentIndex].answerSource);
       this.answerSource.show();
     };
+
     // submit user answer.
     this.submitAnswer = function(guess) {
       var currentSwatchArray = $(".box");
@@ -181,17 +217,21 @@
   };
   
   $(document).ready(function(){
-
     var colorApp = new App();
-    colorApp.showQuestion(0);
-
+    colorApp.showSplashScreen();
+    // begin game
+    $("#start-button").click(function(){
+      colorApp.hideSplashScreen();
+      colorApp.showQuestion(0);
+    });
     // next button function
     $("#continue").click(function(e){
       colorApp.nextQuestion();
     });
-    // submit button
+    // submit button function
     $(".box").click(function(e){
       colorApp.submitAnswer($(this));
     });
   });
+
 })(jQuery);

@@ -30,7 +30,7 @@ h3 {
   font-size: 2.5vh; }
 
 p {
-  font-size: 3vh; }
+  font-size: 2.5vh; }
 
 h1, h3 {
   display: inline-block; }
@@ -53,17 +53,36 @@ header {
   border-bottom: 4px solid #353535; }
   header .container {
     height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center; }
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
   header .question-counter {
     background-color: #808080;
     height: 100%;
     width: 20%;
     text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     border-bottom: 4px solid #686868; }
     header .question-counter h2, header .question-counter h3 {
       margin: 0; }
@@ -77,9 +96,19 @@ header {
 /* ================================================================================
   #Main
 ================================================================================ */
+.start-button {
+  position: absolute;
+  z-index: 99999999;
+  font-size: 7vh;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+
 .mask {
   width: 100%;
-  height: 25%;
+  height: 30%;
   z-index: 10;
   position: absolute;
   overflow: hidden; }
@@ -96,15 +125,18 @@ header {
   position: relative;
   background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
   background-size: cover; }
+  .main.main-splash {
+    background-color: #1A1A1A;
+    background-image: none; }
   .main .question {
     width: 100%;
-    height: 25%;
+    height: 30%;
     position: absolute;
     z-index: 999999;
     background: rgba(0, 0, 0, 0.5);
-    padding: 3% 5%; }
+    padding: 2% 2%; }
     .main .question p {
-      margin: 10px 0; }
+      margin: 8px 0; }
     .main .question .source {
       font-size: 2vh;
       color: white;
@@ -119,7 +151,8 @@ header {
   height: 40% !important; }
 
 .question-container {
-  transition: all .2s ease-out; }
+  -webkit-transition: all .2s ease-out;
+          transition: all .2s ease-out; }
 
 /* ================================================================================
   #Swatches
@@ -134,33 +167,32 @@ header {
     height: 15%;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
     border: 3px solid white;
-    transition: top .2s ease-out;
-    transition-delay: .2s; }
+    -webkit-transition: top .2s ease-out;
+            transition: top .2s ease-out;
+    -webkit-transition-delay: .2s;
+            transition-delay: .2s; }
     .swatches .continue p {
       position: absolute;
       font-size: 4vh;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%); }
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
 
 .continue-button-visible {
   top: 30% !important; }
 
-.swatch-two {
-  left: 25%; }
-
-.swatch-three {
-  left: 50%; }
-
-.swatch-four {
-  left: 75%; }
-
 .hex {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   bottom: 10%;
   font-size: 3vh; }
 
@@ -173,9 +205,39 @@ header {
   position: absolute;
   display: inline-block;
   bottom: 0;
-  transition: height .2s ease-in-out; }
-  .box:hover {
-    height: 35%; }
+  -webkit-transition: height .2s ease-in-out;
+          transition: height .2s ease-in-out;
+  -webkit-transition: all .4s ease-in-out !important;
+          transition: all .4s ease-in-out !important; }
+
+.box-splash {
+  left: 46%;
+  height: 25vh;
+  width: 25vh; }
+  .box-splash .swatch-path {
+    fill: none;
+    stroke: white;
+    stroke-width: 5px; }
+  .box-splash.swatch-0 {
+    top: 6vh;
+    -webkit-transform: rotate(-45deg) translateX(-50%);
+        -ms-transform: rotate(-45deg) translateX(-50%);
+            transform: rotate(-45deg) translateX(-50%); }
+  .box-splash.swatch-1 {
+    top: 8vh;
+    -webkit-transform: rotate(-45deg) translateX(-50%);
+        -ms-transform: rotate(-45deg) translateX(-50%);
+            transform: rotate(-45deg) translateX(-50%); }
+  .box-splash.swatch-2 {
+    top: 20vh;
+    -webkit-transform: rotate(45deg) translateX(-50%);
+        -ms-transform: rotate(45deg) translateX(-50%);
+            transform: rotate(45deg) translateX(-50%); }
+  .box-splash.swatch-3 {
+    top: 22vh;
+    -webkit-transform: rotate(45deg) translateX(-50%);
+        -ms-transform: rotate(45deg) translateX(-50%);
+            transform: rotate(45deg) translateX(-50%); }
 
 .box--collapser {
   -webkit-transition: -webkit-transform 0.15s, opacity 0.15s;
@@ -192,7 +254,7 @@ header {
 .box--expander.box--sizeup {
   width: 100%;
   left: 0 !important;
-  height: 45%; }
+  height: 45% !important; }
 
 .morph-shape {
   position: absolute;
@@ -204,13 +266,23 @@ header {
   transition: transform 0.1s ease-in-out; }
 
 /* ================================================================================
+  #Scorecard screen
+================================================================================ */
+.total-score {
+  color: #484848;
+  text-align: center; }
+
+.end-screen {
+  display: none; }
+
+/* ================================================================================
   #Table
 ================================================================================ */
 table {
   color: #484848;
   font-size: 3vh;
-  width: 70%;
-  height: 80%;
+  width: 85%;
+  height: 70%;
   margin: 0 auto; }
   table tr {
     border-bottom: 1px solid #484848; }
@@ -237,26 +309,50 @@ footer {
   z-index: 99999; }
   footer .container {
     height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center; }
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
     footer .container .colophon {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       height: 100%; }
       footer .container .colophon h3 {
         margin: 0; }
       footer .container .colophon img {
         display: inline;
-        height: 50%;
+        height: 40%;
         width: auto; }
 
 /* Smartphones (portrait) ----------- */
+@media only screen and (min-width: 1000px) {
+  .box:hover {
+    height: 35%; } }
+
 @media only screen and (max-width: 700px) {
   .container {
     width: 100%; }
   header, footer {
     padding-left: 5px; }
-  .question-counter {
-    padding-right: 5px; } }
+  header .question-counter {
+    padding-right: 5px;
+    width: 30%; } }
