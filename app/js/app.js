@@ -22,15 +22,15 @@
 
     // question data.
     this.appData = [
-      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", answerSource:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
-      {name:"Date", imgs:[], question:"You are going on a date and want to look your best. What color should you wear?", quote:"Studies find both men and women find the other sex more attractive when wearing red.", answerSource:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
+      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", answerSource:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#8F52A2", "#AFD31E", "#0000FF"], answerIndex:3, score:4},
+      {name:"Date", imgs:[], question:"You are going on a date and want to look your best. What color should you wear?", quote:"Studies find both men and women find the other sex more attractive when wearing red.", answerSource:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:["#F6302B", "#8F52A2", "#AFD31E", "#0000FF"], answerIndex:0, score:4},
       {name:"Drug", imgs:[], question:"You’re marketing a new alertness drug. What color should you make the pills?", quote:"Studies find orange-colored placebo stimulants are 47% more effective. Similarly, tranquilizers are more effective when either blue or green.", answerSource:"http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2359128/", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
       {name:"Toy", imgs:[], question:"You’re designing a toy for toddlers. Which of the following colors should you make it? ", quote:"Children are naturally attracted to bright colors because rods are more developed at birth than cones. That means babies see bright colors more easily.", answerSource:"http://news.bbc.co.uk/2/hi/health/4474725.stm", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
       {name:"Cardiac rehab", imgs:[], question:"You’re the lead physician at a new cardiac rehab facility. You arrive for your first day of work, and immediately insist the walls be repainted. What color are they?", quote:"Studies show blood pressure and heart rates are consistently XX% higher in red rooms.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
       {name:"Restaurant", imgs:[], question:"You’re the general manager of a hip new restaurant. Your investors say you can design the interior however you want, as long as you don’t paint the walls one particular color. Which color?", quote:"Nature has very few naturally blue foods. As such, humans don’t associate the color with hunger. For greater sales, paint your walls green or other natural earth tones.", answerSource:"http://personal.stevens.edu/~rchen/creativity/impact%20of%20color%20on%20marketing.pdf", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
       {name:"Hospital walls", imgs:[], question:"Your hospital walls need to be repainted. What color should you choose?", quote:"Research suggests people in green rooms or rooms with lots of plants experience less stress and can tolerate more physical pain than a control group.", answerSource:"http://public.wsu.edu/~lohr/hih/pain/", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
       {name:"Financial guru", imgs:[], question:"You’re a well respected financial guru, and are about to launch a new 3am money management program on basic color. What color tie should you wear? ", quote:"Purple is historically associated with royalty because of the historical cost and rarity of the plants that produced the dye. In modern times, purple is still associated with luxury and financial success.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
-      {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
+      {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn. All use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
       {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
     ]
 
@@ -183,17 +183,23 @@
 
     // advance to second screen of question
     this.showCorrectScreen = function(){
+      var questionData = this.appData[this.currentIndex];
       this.continueButton.addClass('continue-button-visible');
       this.questionContainers.each(function(el) {
         $(this).addClass('expanded-message');
       })
+      $("#blurred-background").css( "background-image", function() {
+        return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '_answer.jpg' + "')" ;
+      });
+      console.log('url(' + "'" + '../img/' + (this.currentIndex+1) + '_answer.jpg' + "')");
       this.questionCopy.hide();
       this.randomSuccess.html(this.getRandomSuccess());
       this.randomSuccess.show();
-      this.answerMessage.html(this.appData[this.currentIndex].quote);
+      this.answerMessage.html(questionData.quote);
       this.answerMessage.show();
-      this.answerSource.attr("href", this.appData[this.currentIndex].answerSource);
+      this.answerSource.attr("href", questionData.answerSource);
       this.answerSource.show();
+
     };
 
     // submit user answer.
@@ -209,7 +215,7 @@
         this.randomSuccess.css( {color: questionData.swatchFills[guessIndex]} );
         console.log("correct");
         this.showCorrectScreen();
-      }else{
+      } else{
         console.log("incorrect");
         questionData.score -= 1;
         this.randomIncorrect.css( {color: questionData.swatchFills[guessIndex]} );

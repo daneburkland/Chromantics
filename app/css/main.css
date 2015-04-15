@@ -30,7 +30,7 @@ h3 {
   font-size: 2.5vh; }
 
 p {
-  font-size: 2.9vh; }
+  font-size: 2.7vh; }
 
 h1, h3 {
   display: inline-block;
@@ -109,7 +109,7 @@ header {
 
 .mask {
   width: 100%;
-  height: 30%;
+  height: 35%;
   z-index: 10;
   position: absolute;
   overflow: hidden; }
@@ -131,7 +131,7 @@ header {
     background-image: none; }
   .main .question {
     width: 100%;
-    height: 30%;
+    height: 35%;
     position: absolute;
     z-index: 999999;
     background: rgba(0, 0, 0, 0.5);
@@ -149,7 +149,7 @@ header {
       font-size: 4vh; }
 
 .expanded-message {
-  height: 40% !important; }
+  height: 44% !important; }
 
 .question-container {
   -webkit-transition: all .2s ease-out;
@@ -167,6 +167,7 @@ header {
     width: 50%;
     height: 15%;
     position: absolute;
+    z-index: 99999999;
     left: 50%;
     -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
@@ -186,7 +187,7 @@ header {
               transform: translate(-50%, -50%); }
 
 .continue-button-visible {
-  top: 30% !important; }
+  top: 35% !important; }
 
 .hex {
   position: absolute;
@@ -212,7 +213,7 @@ header {
           transition: all .4s ease-in-out !important; }
 
 .box-splash {
-  left: 46%;
+  left: 45%;
   height: 25vh;
   width: 25vh; }
   .box-splash .swatch-path {
@@ -220,25 +221,25 @@ header {
     stroke: white;
     stroke-width: 8px; }
   .box-splash.swatch-0 {
-    bottom: 34vh;
-    -webkit-transform: rotate(-45deg) translateX(-50%);
-        -ms-transform: rotate(-45deg) translateX(-50%);
-            transform: rotate(-45deg) translateX(-50%); }
+    bottom: 19vh;
+    -webkit-transform: rotate(45deg) translateX(-57%);
+        -ms-transform: rotate(45deg) translateX(-57%);
+            transform: rotate(45deg) translateX(-57%); }
   .box-splash.swatch-1 {
-    bottom: 36vh;
-    -webkit-transform: rotate(-45deg) translateX(-50%);
-        -ms-transform: rotate(-45deg) translateX(-50%);
-            transform: rotate(-45deg) translateX(-50%); }
+    bottom: 21vh;
+    -webkit-transform: rotate(45deg) translateX(-57%);
+        -ms-transform: rotate(45deg) translateX(-57%);
+            transform: rotate(45deg) translateX(-57%); }
   .box-splash.swatch-2 {
-    bottom: 20vh;
-    -webkit-transform: rotate(45deg) translateX(-50%);
-        -ms-transform: rotate(45deg) translateX(-50%);
-            transform: rotate(45deg) translateX(-50%); }
+    bottom: 35vh;
+    -webkit-transform: rotate(-45deg) translateX(-57%);
+        -ms-transform: rotate(-45deg) translateX(-57%);
+            transform: rotate(-45deg) translateX(-57%); }
   .box-splash.swatch-3 {
-    bottom: 22vh;
-    -webkit-transform: rotate(45deg) translateX(-50%);
-        -ms-transform: rotate(45deg) translateX(-50%);
-            transform: rotate(45deg) translateX(-50%); }
+    bottom: 37vh;
+    -webkit-transform: rotate(-45deg) translateX(-57%);
+        -ms-transform: rotate(-45deg) translateX(-57%);
+            transform: rotate(-45deg) translateX(-57%); }
 
 .box--collapser {
   -webkit-transition: -webkit-transform 0.15s, opacity 0.15s;
@@ -255,7 +256,7 @@ header {
 .box--expander.box--sizeup {
   width: 100%;
   left: 0 !important;
-  height: 45% !important; }
+  height: 55% !important; }
 
 .morph-shape {
   position: absolute;
