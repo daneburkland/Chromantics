@@ -136,14 +136,16 @@
                 </tr>
             </table>
             <span class="start-button" id="start-button">Start</span>
-            <div class="question question-container">
-                <p id="question-copy"></p>
-                <h2 id="success-message"></h2>
-                <p id="answer-message"></p>
-                <a href="#" class="source" id="source">Source</a>
-                <p class="wrong" id="wrong"></p>
+            <div id="question-container" class="question question-container">
+                <div class="correct-copy" id="correct-copy">
+                    <p id="question-copy"></p>
+                    <h2 id="success-message"></h2>
+                    <p id="answer-message"></p>
+                    <a href="#" class="source" id="source">Source</a>
+                    <p class="wrong" id="wrong"></p>  
+                </div>
             </div>
-            <div class="mask question-container">
+            <div id="mask" class="mask question-container">
                 <div id="blurred-background" class="blurred-background"></div>
             </div>
             <div class="swatches">
@@ -172,17 +174,24 @@
                         </svg>
                     </span>
                 </div>
-                <div id="expander" class="box box-splash swatch-3 box--expander">
-                    <span class="morph-shape morph-shape--color-4" data-morph-open="M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23
-c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z" data-morph-close="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
-                    <span class="hex"></span>
-                        <svg width="100%" height="100%" viewBox="27 26 245 246" preserveAspectRatio="none">
-                            <path class="submit swatch-path" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z"/>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-        </div>
+                    <div id="expander" class="box box-splash swatch-3 box--expander">
+                        <span class="morph-shape morph-shape--color-4" data-morph-open="M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23
+    c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z" data-morph-close="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
+                        <span class="hex"></span>
+                            <svg width="100%" height="100%" viewBox="27 26 245 246" preserveAspectRatio="none">
+<!--                               <defs>
+                                <pattern id="svg-image" x="-600" y="-600" patternUnits="objectBoundingBox" height="600" width="600">
+                                  <image x="-600" y="-600" width="600" height="600" xlink:href="img/1_answer.jpg"></image>
+                                </pattern>
+                              </defs> -->
+                                <path id="svg-image-path" class="submit swatch-path" d="M273,273c0,0-55.8,0-123,0c-78.2,0-123,0-123,0s0-37.7,0-123c0-70.064,0-123,0-123s45,0,123,0c85,0,123,0,123,0s0,38.43,0,123C273,229.646,273,273,273,273z"/> 
+                                </path>
+                            </svg>
+                                <!-- <div id="expander-background" class="expander-background"></div> -->
+                        </span>
+                    </div>
+            </div> <!-- end swatches -->
+        </div> <!-- end main -->
         <footer>
             <div class="container">
                 <div class="colophon">

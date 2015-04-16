@@ -109,8 +109,8 @@ header {
 
 .mask {
   width: 100%;
-  height: 35%;
-  z-index: 10;
+  /* height: 35%; */
+  z-index: 10000;
   position: absolute;
   overflow: hidden; }
   .mask .blurred-background {
@@ -119,7 +119,9 @@ header {
     background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
     background-size: cover;
     -webkit-filter: blur(5px);
-    z-index: 1; }
+    z-index: 1;
+    -webkit-transition: background-image 1.6s ease-in-out !important;
+            transition: background-image 1.6s ease-in-out !important; }
 
 .main {
   height: 80vh;
@@ -131,41 +133,54 @@ header {
     background-image: none; }
   .main .question {
     width: 100%;
-    height: 35%;
+    /* height: 35%; */
     position: absolute;
     z-index: 999999;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2% 2%; }
+    overflow: hidden; }
     .main .question p {
-      margin: 8px 0; }
+      /* margin: 8px 0; */
+      font-size: 3.5vh; }
     .main .question .source {
       font-size: 2vh;
       color: white;
       font-style: italic; }
     .main .question .wrong {
-      position: absolute;
       bottom: 0;
       font-weight: 700;
       font-size: 4vh; }
 
-.expanded-message {
-  height: 44% !important; }
-
 .question-container {
-  -webkit-transition: all .2s ease-out;
-          transition: all .2s ease-out; }
+  -webkit-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+  top: 0; }
+
+.question-copy-above {
+  top: -300px !important; }
+
+.correct-copy {
+  top: 0;
+  padding: 30px;
+  position: relative;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: top .4s ease-in-out;
+          transition: top .4s ease-in-out; }
 
 /* ================================================================================
   #Swatches
 ================================================================================ */
 .swatches {
-  height: 80%;
+  height: 100%;
   position: relative;
-  top: 20%; }
+  top: 0; }
+  .swatches .success {
+    position: absolute;
+    top: 50%;
+    left: 50%; }
   .swatches .continue {
     top: 150%;
-    width: 50%;
-    height: 15%;
+    width: 25%;
+    height: 10%;
     position: absolute;
     z-index: 99999999;
     left: 50%;
@@ -173,10 +188,9 @@ header {
         -ms-transform: translateX(-50%);
             transform: translateX(-50%);
     border: 3px solid white;
-    -webkit-transition: top .2s ease-out;
-            transition: top .2s ease-out;
-    -webkit-transition-delay: .2s;
-            transition-delay: .2s; }
+    -webkit-transition: top .4s ease-out;
+            transition: top .4s ease-out;
+    /* transition-delay: .2s; */ }
     .swatches .continue p {
       position: absolute;
       font-size: 4vh;
@@ -187,10 +201,11 @@ header {
               transform: translate(-50%, -50%); }
 
 .continue-button-visible {
-  top: 35% !important; }
+  top: 65% !important; }
 
 .hex {
   position: absolute;
+  z-index: 9999999;
   left: 50%;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -245,8 +260,8 @@ header {
   -webkit-transition: -webkit-transform 0.15s, opacity 0.15s;
   transition: transform 0.15s, opacity 0.15s, height .2s ease-in-out; }
 
-.box--expander {
-  z-index: 10000; }
+.box--expander path {
+  overflow: hidden; }
 
 .box--collapser.box--close {
   opacity: 0;
@@ -256,7 +271,14 @@ header {
 .box--expander.box--sizeup {
   width: 100%;
   left: 0 !important;
-  height: 55% !important; }
+  height: 80vh !important;
+  z-index: 2;
+  /* background-position: bottom; */
+  background-size: cover; }
+  .box--expander.box--sizeup svg {
+    /* opacity: 0; */
+    -webkit-transition: opacity 0.4s ease-in-out;
+            transition: opacity 0.4s ease-in-out; }
 
 .morph-shape {
   position: absolute;
@@ -266,6 +288,15 @@ header {
   left: 0;
   -webkit-transition: -webkit-transform 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out; }
+
+.expander-background {
+  width: 80%;
+  height: 80vh;
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  background-size: cover;
+  z-index: -1; }
 
 /* ================================================================================
   #Scorecard screen

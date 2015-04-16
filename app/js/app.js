@@ -18,6 +18,7 @@
     this.questionScores = $(".question-score");
     this.swatchPaths = $(".swatch-path");
     this.startButton = $("#start-button");
+    this.correctCopy = $("#correct-copy");
     var outerThis = this;
 
     // question data.
@@ -184,22 +185,39 @@
     // advance to second screen of question
     this.showCorrectScreen = function(){
       var questionData = this.appData[this.currentIndex];
-      this.continueButton.addClass('continue-button-visible');
-      this.questionContainers.each(function(el) {
-        $(this).addClass('expanded-message');
-      })
       $("#blurred-background").css( "background-image", function() {
         return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '_answer.jpg' + "')" ;
       });
-      console.log('url(' + "'" + '../img/' + (this.currentIndex+1) + '_answer.jpg' + "')");
+      this.correctCopy.hide();
+      this.correctCopy.css({padding: 0});
+      this.correctCopy.addClass("question-copy-above");
+      this.correctSwatch.css({"z-index": "1000"});
       this.questionCopy.hide();
-      this.randomSuccess.html(this.getRandomSuccess());
-      this.randomSuccess.show();
-      this.answerMessage.html(questionData.quote);
-      this.answerMessage.show();
-      this.answerSource.attr("href", questionData.answerSource);
-      this.answerSource.show();
+      $(".box--collapser").hide().delay(50).queue(function(next) {
+        outerThis.correctCopy.show();
+        next();
+      }).delay(600).queue(function (next) {
+        outerThis.correctCopy.css({padding: "15px"});
+        outerThis.continueButton.addClass('continue-button-visible');
+        outerThis.correctSwatch.css( "background-image", function() {
+          return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '_answer.jpg' + "')" ;
+        });
+        $(".box--sizeup svg").css({opacity: 0});
+        outerThis.randomSuccess.html(outerThis.getRandomSuccess());
+        outerThis.randomSuccess.show();
+        outerThis.answerMessage.html(questionData.quote);
+        outerThis.answerMessage.show();
+        outerThis.answerSource.attr("href", questionData.answerSource);
+        outerThis.answerSource.show();
+        outerThis.correctCopy.removeClass("question-copy-above");
+        next();
+      });
 
+      /*$("#svg-image-path").css( {opacity: "0"});*/
+/*      $("#svg-image").find("image").css("xlink:href", function() {
+        return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '_answer.jpg' + "')" ;
+      });*/
+      /*$("#svg-image-path").css("fill", "url(#svg-image)");*/
     };
 
     // submit user answer.
@@ -207,8 +225,6 @@
       var currentSwatchArray = $(".box");
       var guessIndex = currentSwatchArray.index(guess);
       var questionData = this.appData[this.currentIndex];
-      console.log(guessIndex);
-      console.log(questionData.answerIndex);
   
       if(guessIndex === questionData.answerIndex){
         this.randomIncorrect.html("");
@@ -243,3 +259,7 @@
   });
 
 })(jQuery);
+
+window.setInterval(function(){
+  $("#mask").height($("#question-container").height());
+}, 0.1);
