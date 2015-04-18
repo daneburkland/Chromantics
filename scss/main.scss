@@ -33,7 +33,7 @@ h1, h3 {
   #Grid
 ================================================================================ */
 .container {
-  width: 80%;
+  width: 70%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -68,7 +68,7 @@ header {
   }
   .title {
     h3 { font-style: italic; }
-    h1 { margin-right: 10px; }
+    h1 { margin-right: 6px; }
   }
 }
 
@@ -77,6 +77,9 @@ header {
 ================================================================================ */
 .start-button {
   position: absolute;
+  width: 50%;
+  text-align: center;
+  line-height: 50vh;
   z-index: 99999999;
   font-size: 7vh;
   top: 50%;
@@ -92,17 +95,17 @@ header {
   .blurred-background {
     position: relative;
     height: 80vh;
-    background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
+    /* background-image: url('../img/Restaurant_Back_Dining_Room.jpg'); */
     background-size: cover;
     -webkit-filter: blur(5px);
     z-index: 1;
-    transition: background-image 1.6s ease-in-out !important;
+    /* transition: background-image 1.6s ease-in-out; */
   }
 }
 .main {
   height: 80vh;
   position: relative;
-  background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
+  /* background-image: url('../img/Restaurant_Back_Dining_Room.jpg'); */
   background-size: cover;
   &.main-splash {
     background-color: #1A1A1A;
@@ -120,13 +123,14 @@ header {
     }
     .source {
       font-size: 2vh;
+      line-height: 4vh;
       color: white;
       font-style: italic;
     }
     .wrong {
       bottom: 0;
       font-weight: 700;
-      font-size: 4vh;
+      font-size: 2.5vh;
     }
   }
 }
@@ -139,7 +143,7 @@ header {
 }
 .correct-copy {
   top: 0;
-  padding: 30px;
+  padding: 20px;
   position: relative;
   z-index: 99999;
   background-color: rgba(0,0,0,0.5);
@@ -150,6 +154,11 @@ header {
 /* ================================================================================
   #Swatches
 ================================================================================ */
+.success-message {
+  font-size: 5vh;
+  line-height: 7vh;
+}
+
 .swatches {
   height: 100%;
   position: relative;
@@ -161,7 +170,7 @@ header {
   }
   .continue {
     top: 150%;
-    width: 25%;
+    width: 30%;
     height: 10%;
     position: absolute;
     z-index: 99999999;
@@ -183,7 +192,18 @@ header {
   top: 65% !important;
 }
 
-
+.displayed-score {
+  display: none;
+  font-weight: 500;
+  position: absolute;
+  z-index: 9999999;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50%;
+  font-size: 10vh;
+  transition: all .4s ease-in-out;
+  transition-delay: .2s;
+}
 
 .hex {
   position: absolute;
@@ -192,6 +212,8 @@ header {
   transform: translateX(-50%);
   bottom: 10%;
   font-size: 3vh;
+  transition: font-size .4s ease-in-out;
+  transition-delay: .2s;
 }
 
 
@@ -211,7 +233,7 @@ header {
 }
 
 .box-splash {
-  left: 45%;
+  left: 50%;
   height: 25vh;
   width: 25vh;
   .swatch-path {
@@ -219,10 +241,10 @@ header {
     stroke: white;
     stroke-width: 8px;
   }
-  &.swatch-0 { bottom: 19vh; transform: rotate(45deg) translateX(-57%) }
-  &.swatch-1 { bottom: 21vh; transform: rotate(45deg) translateX(-57%) }
-  &.swatch-2 { bottom: 35vh; transform: rotate(-45deg) translateX(-57%) }
-  &.swatch-3 { bottom: 37vh; transform: rotate(-45deg) translateX(-57%) }
+  &.swatch-0 { bottom: 10vh; transform: rotate(45deg) translateX(-75%) }
+  &.swatch-1 { bottom: 17vh; transform: rotate(45deg) translateX(-75%) }
+  &.swatch-2 { bottom: 39vh; transform: rotate(-45deg) translateX(-75%) }
+  &.swatch-3 { bottom: 41vh; transform: rotate(-45deg) translateX(-75%) }
 }
 .box--collapser {
   -webkit-transition: -webkit-transform 0.15s, opacity 0.15s;

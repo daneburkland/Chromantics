@@ -84,7 +84,7 @@
                 </div>
             </div>
         </header>
-        <div class="main main-splash container">
+        <div id="main" class="main main-splash container">
             <div class="total-score end-screen">
                 <h3 class="score-message">Your score is:</h3>
                 <h2><span id="score"></span>/40</h2>
@@ -139,7 +139,7 @@
             <div id="question-container" class="question question-container">
                 <div class="correct-copy" id="correct-copy">
                     <p id="question-copy"></p>
-                    <h2 id="success-message"></h2>
+                    <h2 class="success-message" id="success-message"></h2>
                     <p id="answer-message"></p>
                     <a href="#" class="source" id="source">Source</a>
                     <p class="wrong" id="wrong"></p>  
@@ -149,6 +149,7 @@
                 <div id="blurred-background" class="blurred-background"></div>
             </div>
             <div class="swatches">
+                <div id="displayed-score" class="displayed-score"></div>
                 <span id="continue" class="continue"><p>Continue</p></span>
                 <div class="box box-splash swatch-0 box--collapser">
                     <span class="morph-shape morph-shape--color-1" data-morph-active="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z;M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23 c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z">

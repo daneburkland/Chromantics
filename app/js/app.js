@@ -19,20 +19,21 @@
     this.swatchPaths = $(".swatch-path");
     this.startButton = $("#start-button");
     this.correctCopy = $("#correct-copy");
+    this.displayedScore = $("#displayed-score");
     var outerThis = this;
 
     // question data.
     this.appData = [
-      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift XX% more in blue rooms than red.", answerSource:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#F6302B", "#8F52A2", "#AFD31E", "#0000FF"], answerIndex:3, score:4},
-      {name:"Date", imgs:[], question:"You are going on a date and want to look your best. What color should you wear?", quote:"Studies find both men and women find the other sex more attractive when wearing red.", answerSource:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:["#F6302B", "#8F52A2", "#AFD31E", "#0000FF"], answerIndex:0, score:4},
-      {name:"Drug", imgs:[], question:"You’re marketing a new alertness drug. What color should you make the pills?", quote:"Studies find orange-colored placebo stimulants are 47% more effective. Similarly, tranquilizers are more effective when either blue or green.", answerSource:"http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2359128/", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
-      {name:"Toy", imgs:[], question:"You’re designing a toy for toddlers. Which of the following colors should you make it? ", quote:"Children are naturally attracted to bright colors because rods are more developed at birth than cones. That means babies see bright colors more easily.", answerSource:"http://news.bbc.co.uk/2/hi/health/4474725.stm", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:1, score:4},
-      {name:"Cardiac rehab", imgs:[], question:"You’re the lead physician at a new cardiac rehab facility. You arrive for your first day of work, and immediately insist the walls be repainted. What color are they?", quote:"Studies show blood pressure and heart rates are consistently XX% higher in red rooms.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
-      {name:"Restaurant", imgs:[], question:"You’re the general manager of a hip new restaurant. Your investors say you can design the interior however you want, as long as you don’t paint the walls one particular color. Which color?", quote:"Nature has very few naturally blue foods. As such, humans don’t associate the color with hunger. For greater sales, paint your walls green or other natural earth tones.", answerSource:"http://personal.stevens.edu/~rchen/creativity/impact%20of%20color%20on%20marketing.pdf", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
-      {name:"Hospital walls", imgs:[], question:"Your hospital walls need to be repainted. What color should you choose?", quote:"Research suggests people in green rooms or rooms with lots of plants experience less stress and can tolerate more physical pain than a control group.", answerSource:"http://public.wsu.edu/~lohr/hih/pain/", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:3, score:4},
-      {name:"Financial guru", imgs:[], question:"You’re a well respected financial guru, and are about to launch a new 3am money management program on basic color. What color tie should you wear? ", quote:"Purple is historically associated with royalty because of the historical cost and rarity of the plants that produced the dye. In modern times, purple is still associated with luxury and financial success.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:0, score:4},
-      {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn. All use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
-      {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Facebook, Twitter, LinkedIn, X and Y. All have primarily use blue color schemes. Why? Studies show 60% of the world identifies blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability.", answerSource:"", swatchFills:["#F6302B", "#8F52A2", "#0000FF", "#AFD31E"], answerIndex:2, score:4},
+      {name:"Drug", imgs:[], question:"You’re developing a new alertness drug. What color should you make the pills?", quote:"Studies find orange-colored placebo stimulants are 47% more effective than other colors. Similarly, tranquilizers are more effective when either blue or green.", answerSourceName: "The Placebo: A Reader", answerSource:"https://books.google.com/books?id=8UMDAAAAQBAJ&pg=PA114&lpg=PA114&dq=buckalew+orange+stimulant&source=bl&ots=x7FKPq5xqM&sig=RpGlw3MP38uuxsk3Pxr5DcvVhI4&hl=en&sa=X&ei=JBYjVbvwJMTjsASQyIDgBw&ved=0CDAQ6AEwAg#v=onepage&q&f=false", swatchFills:["#712F78", "#3DDCF2", "#52FF62", "#F75A00"], answerIndex:3, score:3},
+      {name:"Gym", imgs:[], question:"You’re opening a gym. Which color will make your members most productive?", quote:"Objects appear longer under red light and shorter under blue. Because the weights seem lighter in blue environments, athletes can consistently lift more in blue rooms than in red.", answerSourceName: "Questia.com", answerSource:"https://www.questia.com/library/psychology/other-types-of-psychology/psychology-of-color", swatchFills:["#4444CC", "#FF8718", "#EB1821", "#E84197"], answerIndex:0, score:3},
+      {name:"Date", imgs:[], question:"You’re going on a date and want to look your best. What color should you wear?", quote:"Studies show both men and women find the other sex more attractive when wearing red.", answerSourceName: "Psychologytoday.com", answerSource:"https://www.psychologytoday.com/blog/insight-therapy/201301/red-alert-science-discovers-the-color-sexual-attraction", swatchFills:[ "#34BEDA", "#B40406", "#66B356", "#FFD90F"], answerIndex:1, score:3},
+      {name:"Toy", imgs:[], question:"You’re designing a toy for toddlers. Which of the following colors should you make it?", quote:"Children are naturally attracted to bright colors because they have more rods at birth than cones. That means babies see bright colors more easily.", answerSourceName: "University of Kentucky", answerSource:"http://www2.ca.uky.edu/hes/fcs/factshts/HF-LRA.151.PDF", swatchFills:["#32F50D", "#671073", "#8A0F12", "#2790B0"], answerIndex:0, score:3},
+      {name:"Cardiac rehab", imgs:[], question:"You’re the lead physician at a new cardiac rehab facility. You arrive for your first day of work, and immediately insist the walls be repainted. What color were they?", quote:"Studies show heart rates are consistently higher in red rooms.", answerSourceName: "Color: Research and Application", answerSource:"http://onlinelibrary.wiley.com/doi/10.1002/col.21949/abstract", swatchFills:["#04C4BB", "#D41B29", "#F7C6F3", "#E6ED07"], answerIndex:1, score:3},
+      {name:"Restaurant", imgs:[], question:"You’re the general manager of a new restaurant. Your investors say you can design the interior however you want, as long as you don’t paint the walls one particular color. Which color?", quote:"Nature has very few naturally blue foods, so humans don’t associate the color with hunger. For greater sales, paint your walls red or other natural earth tones.", answerSourceName: "", answerSource:"http://personal.stevens.edu/~rchen/creativity/impact%20of%20color%20on%20marketing.pdf", swatchFills:["#F6312B", "#8F52A3", "#0000FF", "#B0D41E"], answerIndex:2, score:3},
+      {name:"Hospital walls", imgs:[], question:"Your hospital walls need to be repainted. What color should you choose?", quote:"Research suggests people in green rooms or rooms with lots of plants experience less stress and can tolerate more physical pain than a control group.", answerSourceName: "Washington State Univerity", answerSource:"http://public.wsu.edu/~lohr/hih/pain/", swatchFills:["#47A94B", "#69D2E7", "#D7217E", "#EDDE45"], answerIndex:0, score:3},
+      {name:"Financial guru", imgs:[], question:"You’re a well respected financial guru about to launch a new money management TV show. What color tie should you wear?", quote:"Purple is historically associated with royalty because of the cost and rarity of obtaining the specific breed of sea snails used to produce the color. In modern times, purple is still associated with luxury and financial success.", answerSourceName: "Wikipedia: Tyrian Purple", answerSource:"http://en.wikipedia.org/wiki/Tyrian_purple", swatchFills:["#0910B9", "#EE2012", "#9061C2", "#F8D518"], answerIndex:0, score:3},
+      {name:"Social Networking", imgs:[], question:"You’re launching a new social networking platform. What color logo should you use?", quote:"Studies show 40% of people rate blue as their favorite color. Evolutionary biologists theorize this traces back to our “savannah days”, when blue signaled good weather and clear water. Today, blue is associated with trust, honesty and dependability, and is the color of choice for tech companies like Facebook, Twitter, LinkedIn, Instagram, etc.", answerSourceName: "Color and Design", answerSource:"https://books.google.com/books?id=sdNBAgAAQBAJ&pg=PA188&lpg=PA188&dq=blue+color+favorite+world+percent&source=bl&ots=PgtvUB3bpg&sig=5zBgvz3SqLOsWrcFUpFPQJRqzhk&hl=en&sa=X&ei=w_AlVbaWE4XssAXd5YHABg&ved=0CCwQ6AEwAg#v=onepage&q=blue%20color%20favorite%20world%20percent&f=false", swatchFills:[ "#E73525", "#55ACEE", "#A1C820", "#F38630"], answerIndex:2, score:3},
+      {name:"Productivity", imgs:[], question:"You work in the IT department of a large corporation. The brass tell you to improve productivity company-wide. What color should you make every workers’ desktop wallpaper?", quote:"A recent study found that a solid red computer wallpaper improved performance on detail-oriented computer tasks, likely through avoidance motivation because of red’s association with danger and mistakes.", answerSourceName: "Color Psychology and Graphic Design Applications", answerSource:"http://digitalcommons.liberty.edu/cgi/viewcontent.cgi?article=1118&context=honors", swatchFills:["#8F52A2", "#0000FF", "#F6302B", "#AFD31E"], answerIndex:2, score:3},
     ]
 
 
@@ -81,7 +82,7 @@
       return i[ Math.round(Math.random()*(i.length-1)) ];
     };
 
-    // show end screen
+    
     this.showEndScreen = function() {
       // hide the unneccessary elements
       this.questionContainers.hide();
@@ -112,7 +113,7 @@
       $("#score").html(totalScore);
     }
 
-    // go to next question
+    
     this.nextQuestion = function(){
       var newIndex = this.currentIndex + 1;
       this.continueButton.hide().delay(5).queue(function(next) {
@@ -122,14 +123,28 @@
       this.continueButton.removeClass('continue-button-visible');
       if(newIndex > this.appData.length-1){
         this.showEndScreen();
-      }else{
+      } else {
         this.showQuestion(newIndex);
       }
     };
-    // reorder and restyle the swatches
+    
     this.resetSwatches = function(index) {
       var correctSwatchIndex = this.appData[index].answerIndex;
       var swatchFillArray = this.appData[index].swatchFills;
+      // remore the blurred background mask transition
+      $("#mask").css({"transition": "none 0s"});
+      // reset the background images
+      $("#main").css( "background-image", function() {
+        return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '.jpg' + "')" ;
+      });
+      $("#blurred-background").css( "background-image", function() {
+        return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '.jpg' + "')" ;
+      });
+      // resize hex type
+      this.hexLabels.css({"font-size": "3vh"});
+      // remove the background image on correct swatch and reset the svg's opacity
+      this.correctSwatch.css({"background-image": "none"}).find("svg").css({"opacity": 1});
+      $(".box--collapser").show();
       // hide the answer messages
       this.questionCopy.show();
       this.randomSuccess.hide();
@@ -168,9 +183,11 @@
       });
       // set the continue button background color
       $("#continue").css( {"background-color": swatchFillArray[correctSwatchIndex]} );
+      // reset the displayed score opacity
+      outerThis.displayedScore.css({opacity: 1, "font-size": "15vh"}).hide();
+
     }
 
-    // show the question
     this.showQuestion = function(index){      
       if(index < 0 || index > this.appData.length-1) return;
       this.currentIndex = index;
@@ -188,16 +205,17 @@
       $("#blurred-background").css( "background-image", function() {
         return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '_answer.jpg' + "')" ;
       });
+      this.hexLabels.css({"font-size": "6vh"});
       this.correctCopy.hide();
       this.correctCopy.css({padding: 0});
       this.correctCopy.addClass("question-copy-above");
-      this.correctSwatch.css({"z-index": "1000"});
       this.questionCopy.hide();
-      $(".box--collapser").hide().delay(50).queue(function(next) {
+      $(".box--collapser").hide().delay(1).queue(function(next) {
         outerThis.correctCopy.show();
         next();
-      }).delay(600).queue(function (next) {
-        outerThis.correctCopy.css({padding: "15px"});
+      }).delay(700).queue(function(next) {
+        $("#mask").css({"transition": "all .4s ease-in-out"});
+        outerThis.correctCopy.css({padding:   "15px"});
         outerThis.continueButton.addClass('continue-button-visible');
         outerThis.correctSwatch.css( "background-image", function() {
           return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '_answer.jpg' + "')" ;
@@ -212,12 +230,6 @@
         outerThis.correctCopy.removeClass("question-copy-above");
         next();
       });
-
-      /*$("#svg-image-path").css( {opacity: "0"});*/
-/*      $("#svg-image").find("image").css("xlink:href", function() {
-        return  'url(' + "'" + '../app/img/' + (outerThis.currentIndex+1) + '_answer.jpg' + "')" ;
-      });*/
-      /*$("#svg-image-path").css("fill", "url(#svg-image)");*/
     };
 
     // submit user answer.
@@ -225,15 +237,29 @@
       var currentSwatchArray = $(".box");
       var guessIndex = currentSwatchArray.index(guess);
       var questionData = this.appData[this.currentIndex];
+      this.displayedScore.css({color: questionData.swatchFills[questionData.answerIndex]});
+      console.log(questionData.swatchFills[questionData.answerIndex]);
+      this.displayedScore.html(function() {
+        return '+' + questionData.score;
+      });
   
       if(guessIndex === questionData.answerIndex){
         this.randomIncorrect.html("");
+        if (questionData.score > 0) {
+          this.displayedScore.show().delay(50).queue(function(next) {
+            outerThis.displayedScore.css({opacity: 0, "font-size": "35vh"});
+            next();
+          });
+        };
         this.randomSuccess.css( {color: questionData.swatchFills[guessIndex]} );
         console.log("correct");
         this.showCorrectScreen();
       } else{
         console.log("incorrect");
         questionData.score -= 1;
+        this.displayedScore.html(function() {
+          return '+' + questionData.score;
+        });
         this.randomIncorrect.css( {color: questionData.swatchFills[guessIndex]} );
         this.randomIncorrect.html(this.getRandomIncorrect());
       }
@@ -245,8 +271,8 @@
     colorApp.showSplashScreen();
     // begin game
     $("#start-button").click(function(){
-      colorApp.hideSplashScreen();
       colorApp.showQuestion(0);
+      colorApp.hideSplashScreen();
     });
     // next button function
     $("#continue").click(function(e){
@@ -258,8 +284,29 @@
     });
   });
 
+  // animate the title "Chromantics" colors
+  function animateTitleColor(i) {
+      $(".title h1").css("color", function() {
+        return 'hsl(' + i + ', 100%, 50%)';
+      });
+      setTimeout(function() {
+          animateTitleColor(++i)
+      }, i);
+  }
+  animateTitleColor(0);
+  function animateSubtitleColor(i) {
+      $(".title h3").css("color", function() {
+        return 'hsl(' + i + ', 100%, 50%)';
+      });
+      setTimeout(function() {
+          animateSubtitleColor(++i)
+      }, i);
+  }
+  animateSubtitleColor(180);
+
 })(jQuery);
 
 window.setInterval(function(){
   $("#mask").height($("#question-container").height());
 }, 0.1);
+

@@ -40,7 +40,7 @@ h1, h3 {
   #Grid
 ================================================================================ */
 .container {
-  width: 80%;
+  width: 70%;
   max-width: 1200px;
   margin: 0 auto; }
 
@@ -92,13 +92,16 @@ header {
   header .title h3 {
     font-style: italic; }
   header .title h1 {
-    margin-right: 10px; }
+    margin-right: 6px; }
 
 /* ================================================================================
   #Main
 ================================================================================ */
 .start-button {
   position: absolute;
+  width: 50%;
+  text-align: center;
+  line-height: 50vh;
   z-index: 99999999;
   font-size: 7vh;
   top: 50%;
@@ -116,17 +119,16 @@ header {
   .mask .blurred-background {
     position: relative;
     height: 80vh;
-    background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
+    /* background-image: url('../img/Restaurant_Back_Dining_Room.jpg'); */
     background-size: cover;
     -webkit-filter: blur(5px);
     z-index: 1;
-    -webkit-transition: background-image 1.6s ease-in-out !important;
-            transition: background-image 1.6s ease-in-out !important; }
+    /* transition: background-image 1.6s ease-in-out; */ }
 
 .main {
   height: 80vh;
   position: relative;
-  background-image: url('../img/Restaurant_Back_Dining_Room.jpg');
+  /* background-image: url('../img/Restaurant_Back_Dining_Room.jpg'); */
   background-size: cover; }
   .main.main-splash {
     background-color: #1A1A1A;
@@ -142,12 +144,13 @@ header {
       font-size: 3.5vh; }
     .main .question .source {
       font-size: 2vh;
+      line-height: 4vh;
       color: white;
       font-style: italic; }
     .main .question .wrong {
       bottom: 0;
       font-weight: 700;
-      font-size: 4vh; }
+      font-size: 2.5vh; }
 
 .question-container {
   -webkit-transition: all .4s ease-in-out;
@@ -159,7 +162,7 @@ header {
 
 .correct-copy {
   top: 0;
-  padding: 30px;
+  padding: 20px;
   position: relative;
   z-index: 99999;
   background-color: rgba(0, 0, 0, 0.5);
@@ -169,6 +172,10 @@ header {
 /* ================================================================================
   #Swatches
 ================================================================================ */
+.success-message {
+  font-size: 5vh;
+  line-height: 7vh; }
+
 .swatches {
   height: 100%;
   position: relative;
@@ -179,7 +186,7 @@ header {
     left: 50%; }
   .swatches .continue {
     top: 150%;
-    width: 25%;
+    width: 30%;
     height: 10%;
     position: absolute;
     z-index: 99999999;
@@ -203,6 +210,22 @@ header {
 .continue-button-visible {
   top: 65% !important; }
 
+.displayed-score {
+  display: none;
+  font-weight: 500;
+  position: absolute;
+  z-index: 9999999;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 50%;
+  font-size: 10vh;
+  -webkit-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+  -webkit-transition-delay: .2s;
+          transition-delay: .2s; }
+
 .hex {
   position: absolute;
   z-index: 9999999;
@@ -211,7 +234,11 @@ header {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   bottom: 10%;
-  font-size: 3vh; }
+  font-size: 3vh;
+  -webkit-transition: font-size .4s ease-in-out;
+          transition: font-size .4s ease-in-out;
+  -webkit-transition-delay: .2s;
+          transition-delay: .2s; }
 
 /* ================================================================================
   #Elastic SVGs
@@ -228,7 +255,7 @@ header {
           transition: all .4s ease-in-out !important; }
 
 .box-splash {
-  left: 45%;
+  left: 50%;
   height: 25vh;
   width: 25vh; }
   .box-splash .swatch-path {
@@ -236,25 +263,25 @@ header {
     stroke: white;
     stroke-width: 8px; }
   .box-splash.swatch-0 {
-    bottom: 19vh;
-    -webkit-transform: rotate(45deg) translateX(-57%);
-        -ms-transform: rotate(45deg) translateX(-57%);
-            transform: rotate(45deg) translateX(-57%); }
+    bottom: 10vh;
+    -webkit-transform: rotate(45deg) translateX(-75%);
+        -ms-transform: rotate(45deg) translateX(-75%);
+            transform: rotate(45deg) translateX(-75%); }
   .box-splash.swatch-1 {
-    bottom: 21vh;
-    -webkit-transform: rotate(45deg) translateX(-57%);
-        -ms-transform: rotate(45deg) translateX(-57%);
-            transform: rotate(45deg) translateX(-57%); }
+    bottom: 17vh;
+    -webkit-transform: rotate(45deg) translateX(-75%);
+        -ms-transform: rotate(45deg) translateX(-75%);
+            transform: rotate(45deg) translateX(-75%); }
   .box-splash.swatch-2 {
-    bottom: 35vh;
-    -webkit-transform: rotate(-45deg) translateX(-57%);
-        -ms-transform: rotate(-45deg) translateX(-57%);
-            transform: rotate(-45deg) translateX(-57%); }
+    bottom: 39vh;
+    -webkit-transform: rotate(-45deg) translateX(-75%);
+        -ms-transform: rotate(-45deg) translateX(-75%);
+            transform: rotate(-45deg) translateX(-75%); }
   .box-splash.swatch-3 {
-    bottom: 37vh;
-    -webkit-transform: rotate(-45deg) translateX(-57%);
-        -ms-transform: rotate(-45deg) translateX(-57%);
-            transform: rotate(-45deg) translateX(-57%); }
+    bottom: 41vh;
+    -webkit-transform: rotate(-45deg) translateX(-75%);
+        -ms-transform: rotate(-45deg) translateX(-75%);
+            transform: rotate(-45deg) translateX(-75%); }
 
 .box--collapser {
   -webkit-transition: -webkit-transform 0.15s, opacity 0.15s;
