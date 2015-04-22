@@ -61,6 +61,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <!-- typekit -->
@@ -75,7 +76,13 @@
 </head>
 
     <body>
-        <header>
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+
+        <header class="animated fadeInDown">
             <div class="container">
                 <div class="title">
                     <h1>Chromantics:</h1>
@@ -139,16 +146,16 @@
                 </tr>
             </table>
             <span class="start-button" id="start-button">Start</span>
-            <div id="question-container" class="question question-container">
+            <div id="question-container" class="question question-container anim-class">
                 <div class="correct-copy" id="correct-copy">
                     <p id="question-copy"></p>
                     <h2 class="success-message" id="success-message"></h2>
-                    <p id="answer-message"></p>
+                    <p class="answer-message" id="answer-message"></p>
                     <a href="#" class="source" id="source">Source</a>
                     <p class="wrong" id="wrong"></p>  
                 </div>
             </div>
-            <div id="mask" class="mask question-container">
+            <div id="mask" class="mask question-container anim-class">
                 <div id="blurred-background" class="blurred-background"></div>
             </div>
             <div class="swatches">
@@ -178,7 +185,7 @@
                         </svg>
                     </span>
                 </div>
-                    <div id="expander" class="box box-splash swatch-3 box--expander">
+                    <div id="expander" class="box box-splash swatch-3 box--expander  anim-class">
                         <span class="morph-shape morph-shape--color-4" data-morph-open="M273,273c0,0-55.8-23-123-23c-78.2,0-123,23-123,23s23-37.7,23-123C50,79.936,27,27,27,27s46,23,124,23
     c85,0,122-23,122-23s-23,38.43-23,123C250,229.646,273,273,273,273z" data-morph-close="M273,273c0,0-55.8,24-123,24c-78.2,0-123-24-123-24S3,235.3,3,150C3,79.936,27,27,27,27S72,3,150,3 c85,0,123,24,123,24s24,38.43,24,123C297,229.646,273,273,273,273z">
                         <span class="hex"></span>
@@ -199,9 +206,9 @@
                 <div class="made-by">
                     <div class="designed-built">Designed and Built by</div>
                     <div class="team">
-                        <div class="myla"><p>Myla Fay</p><i class="fa fa-pencil"></i></div>
-                        <div class="dane"><p>Dane Burkland</p><i class="fa fa-code"></i></div>
-                        <div class="brandon"><p>Brandon King</p><i class="fa fa-paint-brush"></i></div>
+                        <div class="myla"><a href="#">Myla Fay</a><i class="fa fa-pencil"></i></div>
+                        <div class="dane"><a href="#">Dane Burkland</a><i class="fa fa-code"></i></div>
+                        <div class="brandon"><a href="#">Brandon King</a><i class="fa fa-paint-brush"></i></div>
                     </div>
                 </div>
                 <a href="#" id="share-score" class="share-score">Share your score</a>
