@@ -36,6 +36,10 @@ h1, h3 {
   display: inline-block;
   font-weight: 300; }
 
+a {
+  text-decoration: none;
+  color: #fff; }
+
 /* ================================================================================
   #Grid
 ================================================================================ */
@@ -51,7 +55,7 @@ header {
   width: 100%;
   height: 10vh;
   background-color: #484848;
-  border-bottom: 4px solid #353535; }
+  border-bottom: 5px solid #353535; }
   header .container {
     height: 100%;
     display: -webkit-box;
@@ -67,6 +71,7 @@ header {
         -ms-flex-align: center;
             align-items: center; }
   header .question-counter {
+    position: relative;
     background-color: #808080;
     height: 100%;
     width: 20%;
@@ -84,11 +89,18 @@ header {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    border-bottom: 4px solid #686868; }
+    /* border-bottom: 5px solid #686868; */ }
     header .question-counter h2, header .question-counter h3 {
       margin: 0; }
     header .question-counter h2 {
-      letter-spacing: 2px; }
+      letter-spacing: 2px;
+      font-size: 3vh; }
+  header .question-counter:after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    border-bottom: 5px solid #686868; }
   header .title h3 {
     font-style: italic; }
   header .title h1 {
@@ -132,7 +144,7 @@ header {
   background-size: cover; }
   .main.main-splash {
     background-color: #1A1A1A;
-    background-image: none; }
+    background-image: none !important; }
   .main .question {
     width: 100%;
     /* height: 35%; */
@@ -332,10 +344,90 @@ header {
   color: #484848;
   text-align: center; }
   .total-score h2 {
-    font-size: 6vh; }
+    font-size: 7vh; }
+  .total-score h3 {
+    font-size: 3vh;
+    margin-top: 15px; }
 
 .end-screen {
   display: none; }
+
+.scorecard-footer {
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  position: absolute; }
+  .scorecard-footer p {
+    font-size: 2vh; }
+  .scorecard-footer .made-by {
+    width: 75%;
+    display: inline-block; }
+    .scorecard-footer .made-by .designed-built {
+      background-color: #999999;
+      display: block; }
+    .scorecard-footer .made-by .team {
+      width: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    .scorecard-footer .made-by .myla, .scorecard-footer .made-by .dane, .scorecard-footer .made-by .brandon {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      height: 8vh;
+      width: 33%;
+      padding: 0 2px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: column;
+          -ms-flex-flow: column;
+              flex-flow: column;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+    .scorecard-footer .made-by .myla {
+      background-color: #EC6A4D; }
+    .scorecard-footer .made-by .dane {
+      background-color: #D2C255; }
+    .scorecard-footer .made-by .brandon {
+      background-color: #579AC5; }
+  .scorecard-footer .play-again {
+    width: 25%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    background-color: #00D177; }
+  .scorecard-footer .share-score {
+    width: 25%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    background-color: #EF8B1C; }
 
 /* ================================================================================
   #Table
@@ -343,8 +435,8 @@ header {
 table {
   color: #484848;
   font-size: 3vh;
-  width: 85%;
-  height: 70%;
+  width: 80%;
+  height: 60%;
   margin: 0 auto; }
   table tr {
     border-bottom: 1px solid #484848; }
