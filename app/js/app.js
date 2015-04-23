@@ -300,15 +300,6 @@
     });
   });
 
-
-  //preload background images
-  $.preloadImages = function() {
-    for (var i = 0; i < arguments.length; i++) {
-      $("<img />").attr("src", arguments[i]);
-    }
-  }
-  $.preloadImages("img/1.jpg","img/1_answer.jpg", "img/2.jpg", "img/2_answer.jpg", "img/3.jpg", "img/3_answer.jpg", "img/4.jpg","img/4_answer.jpg", "img/5.jpg", "img/5_answer.jpg", "img/6.jpg", "img/6_answer.jpg", "img/7.jpg", "img/7_answer.jpg", "img/8.jpg","img/8_answer.jpg", "img/9.jpg", "img/9_answer.jpg", "img/10.jpg", "img/10_answer.jpg");
-
   // animate the title "Chromantics" colors
   function animateTitleColor(i) {
       $(".title h1").css("color", function() {
