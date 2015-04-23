@@ -9,6 +9,10 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+body:after {
+  display: none;
+  content: url(../img/1.jpg) url(../img/1_answer.jpg) url(../img/2.jpg) url(../img/2_answer.jpg) url(../img/3.jpg) url(../img/3_answer.jpg) url(../img/4.jpg) url(../img/4_answer.jpg) url(../img/5.jpg) url(../img/5_answer.jpg) url(../img/6.jpg) url(../img/6_answer.jpg) url(../img/7.jpg) url(../img/7_answer.jpg) url(../img/8.jpg) url(../img/8_answer.jpg) url(../img/9.jpg) url(../img/9_answer.jpg) url(../img/10.jpg) url(../img/10_answer.jpg); }
+
 /* ================================================================================
   #Typography
 ================================================================================ */
@@ -100,6 +104,7 @@ header {
     width: 100%;
     position: absolute;
     bottom: -5px;
+    left: 0;
     border-bottom: 5px solid #686868; }
   header .title h3 {
     font-style: italic; }
