@@ -299,7 +299,7 @@
 
     //initiate the game and hide splash screen
     $("#start-button").click(function(){
-      colorApp.showQuestion(8);
+      colorApp.showQuestion(0);
       colorApp.hideSplashScreen();
     });
 
