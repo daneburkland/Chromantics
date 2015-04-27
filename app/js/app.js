@@ -289,7 +289,6 @@
   };
   
   $(document).ready(function(){
-
     var colorApp = new App();
     colorApp.showSplashScreen();
     
@@ -300,7 +299,7 @@
 
     //initiate the game and hide splash screen
     $("#start-button").click(function(){
-      colorApp.showQuestion(9);
+      colorApp.showQuestion(0);
       colorApp.hideSplashScreen();
     });
 
