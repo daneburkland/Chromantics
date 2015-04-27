@@ -11,7 +11,9 @@ html {
 }
 
 
-
+/* ================================================================================
+  #Pre-load background images
+================================================================================ */
 body:after{
     display:none;
     content: url(../img/1.jpg) url(../img/1_answer.jpg) url(../img/2.jpg) url(../img/2_answer.jpg) url(../img/3.jpg) url(../img/3_answer.jpg) url(../img/4.jpg) url(../img/4_answer.jpg) url(../img/5.jpg) url(../img/5_answer.jpg) url(../img/6.jpg) url(../img/6_answer.jpg) url(../img/7.jpg) url(../img/7_answer.jpg) url(../img/8.jpg) url(../img/8_answer.jpg) url(../img/9.jpg) url(../img/9_answer.jpg) url(../img/10.jpg) url(../img/10_answer.jpg);
@@ -47,6 +49,10 @@ a {
   width: 70%;
   max-width: 1200px;
   margin: 0 auto;
+}
+body {
+  overflow: hidden;
+  height: 100vh;
 }
 
 /* ================================================================================
@@ -586,11 +592,11 @@ footer {
 /* ================================================================================
   #Force hardware acceleration
 ================================================================================ */
-/* .anim-class {
+.anim-class {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000;
-} */
+}
 
 /* ================================================================================
   #Media Queries
@@ -610,8 +616,4 @@ and (max-width : 1024px) {
   .main .question .answer-message p {
     font-size: 3vh;
   }
-}
-
-@media only screen and (max-width: 767px) {
-
 }
