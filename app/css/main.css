@@ -360,7 +360,12 @@ header {
   bottom: 0;
   text-align: center;
   width: 100%;
-  position: absolute; }
+  position: absolute;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row; }
   .scorecard-footer p {
     font-size: 2vh; }
   .scorecard-footer .made-by {
@@ -380,7 +385,7 @@ header {
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1;
-      height: 8vh;
+      height: 12vh;
       width: 33%;
       padding: 0 2px;
       display: -webkit-box;
@@ -653,15 +658,14 @@ footer {
 /* ================================================================================
   #Force hardware acceleration
 ================================================================================ */
-.anim-class {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-perspective: 1000;
-          perspective: 1000; }
-
-/* Smartphones (portrait) ----------- */
+/* .anim-class {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000;
+} */
+/* ================================================================================
+  #Media Queries
+================================================================================ */
 @media only screen and (min-width: 1000px) {
   .box:hover {
     height: 35%; } }
@@ -676,3 +680,4 @@ footer {
     width: 30%; }
   .main .question .answer-message p {
     font-size: 3vh; } }
+

@@ -333,6 +333,7 @@ header {
   text-align: center;
   width: 100%;
   position: absolute;
+  flex-direction: row;
   p {font-size: 2vh;}
   .made-by {
     width: 75%;
@@ -347,7 +348,7 @@ header {
     }
     .myla, .dane, .brandon { 
       flex-grow: 1; 
-      height: 8vh;
+      height: 12vh;
       width: 33%;
       padding: 0 2px;
       display: flex;
@@ -585,14 +586,15 @@ footer {
 /* ================================================================================
   #Force hardware acceleration
 ================================================================================ */
-.anim-class {
+/* .anim-class {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000;
-}
+} */
 
-
-/* Smartphones (portrait) ----------- */
+/* ================================================================================
+  #Media Queries
+================================================================================ */
 @media only screen and (min-width: 1000px) {
   .box:hover { height: 35%; }
 }
@@ -608,4 +610,8 @@ and (max-width : 1024px) {
   .main .question .answer-message p {
     font-size: 3vh;
   }
+}
+
+@media only screen and (max-width: 767px) {
+
 }
