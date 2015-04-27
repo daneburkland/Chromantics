@@ -190,7 +190,7 @@
 
     }
 
-    this.showQuestion = function(index){      
+    this.showQuestion = function(index){     
       if(index < 0 || index > this.appData.length-1) return;
       this.currentIndex = index;
       this.resetSwatches(this.currentIndex);

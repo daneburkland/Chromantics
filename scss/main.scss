@@ -617,3 +617,9 @@ and (max-width : 1024px) {
     font-size: 3vh;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  header .title h1 {
+    font-size: 4vh;
+  }
+}
