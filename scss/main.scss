@@ -354,8 +354,9 @@ header {
     }
     .myla, .dane, .brandon { 
       flex-grow: 1; 
-      height: 12vh;
+      height: 10vh;
       width: 33%;
+      font-weight: 300;
       padding: 0 2px;
       display: flex;
       flex-flow: column;
@@ -603,6 +604,14 @@ footer {
 ================================================================================ */
 @media only screen and (min-width: 1000px) {
   .box:hover { height: 35%; }
+  .myla, .dane, .brandon { 
+    font-size: 3vh;
+    height: 12vh;
+  }
+  .scorecard-footer > a {
+    font-size: 4vh;
+  }
+
 }
 
 @media only screen 
