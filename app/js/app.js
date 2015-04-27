@@ -92,7 +92,7 @@
       $(".end-screen").each(function() {
         $(this).show();
       })
-      $('.scorecard-footer').css ( {display: "flex"} )
+      $(".scorecard-footer").css ( {display: "flex", "flex-direction": "row"} )
       // Change 'Question' to 'Scorecard'
       $(".question-counter h3").html('Scorecard');
       // create question data variable
