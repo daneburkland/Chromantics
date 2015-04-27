@@ -693,4 +693,6 @@ footer {
 
 @media only screen and (max-width: 767px) {
   header .title h1 {
-    font-size: 4vh; } }
+    font-size: 4vh; }
+  table {
+    height: 55%; } }
